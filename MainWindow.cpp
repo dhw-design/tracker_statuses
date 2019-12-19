@@ -28,6 +28,8 @@
 enum {
     spinNavtelecomId = wxID_HIGHEST,
     spinNavisetId,
+    spinArnaviGsmId,
+    spinArnaviNavId,
 };
 
 typedef struct _naviset_st {
@@ -57,6 +59,7 @@ MainWindow::MainWindow(wxWindow* parent, wxWindowID id, const wxString& title, c
     // begin wxGlade: MainWindow::MainWindow
     SetSize(wxSize(271, 252));
     tabTrackers = new wxNotebook(this, wxID_ANY);
+    tabTrackers_Arnavi = new wxPanel(tabTrackers, wxID_ANY);
     tabNaviset = new wxPanel(tabTrackers, wxID_ANY);
     tabNavtelecom = new wxPanel(tabTrackers, wxID_ANY);
     spinNavtelecomStatus = new wxSpinCtrl(tabNavtelecom, spinNavtelecomId, wxT("0"), wxDefaultPosition, wxDefaultSize, wxSP_ARROW_KEYS, 0, 255);
@@ -75,12 +78,19 @@ MainWindow::MainWindow(wxWindow* parent, wxWindowID id, const wxString& title, c
     lblNavisetGsm = new wxStaticText(tabNaviset, wxID_ANY, wxEmptyString);
     lblNavisetGprs = new wxStaticText(tabNaviset, wxID_ANY, wxEmptyString);
     lblNavisetGps = new wxStaticText(tabNaviset, wxID_ANY, wxEmptyString);
+    spinArnaviGsm = new wxSpinCtrl(tabTrackers_Arnavi, spinArnaviGsmId, wxT("0"), wxDefaultPosition, wxDefaultSize, wxSP_ARROW_KEYS, 0, 4);
+    lblArnavi5Gsm = new wxStaticText(tabTrackers_Arnavi, wxID_ANY, wxEmptyString);
+    lblArnaviOtherGsm = new wxStaticText(tabTrackers_Arnavi, wxID_ANY, wxEmptyString);
+    spinArnaviNav = new wxSpinCtrl(tabTrackers_Arnavi, spinArnaviNavId, wxT("0"), wxDefaultPosition, wxDefaultSize, wxSP_ARROW_KEYS, 0, 3);
+    lblArnavi5Nav = new wxStaticText(tabTrackers_Arnavi, wxID_ANY, wxEmptyString);
+    lblArnaviOtherNav = new wxStaticText(tabTrackers_Arnavi, wxID_ANY, wxEmptyString);
 
     set_properties();
     do_layout();
     // end wxGlade
     updateNavisetStatus();
     updateNavtelecomStatus();
+    updateArnaviStatus();
 }
 
 
@@ -98,6 +108,13 @@ void MainWindow::do_layout()
 {
     // begin wxGlade: MainWindow::do_layout
     wxBoxSizer* sizer_1 = new wxBoxSizer(wxVERTICAL);
+    wxBoxSizer* sizer_6 = new wxBoxSizer(wxVERTICAL);
+    wxBoxSizer* sizer_12 = new wxBoxSizer(wxHORIZONTAL);
+    wxBoxSizer* sizer_11 = new wxBoxSizer(wxHORIZONTAL);
+    wxBoxSizer* sizer_10 = new wxBoxSizer(wxHORIZONTAL);
+    wxBoxSizer* sizer_9 = new wxBoxSizer(wxHORIZONTAL);
+    wxBoxSizer* sizer_8 = new wxBoxSizer(wxHORIZONTAL);
+    wxBoxSizer* sizer_7 = new wxBoxSizer(wxHORIZONTAL);
     wxBoxSizer* sizer_4 = new wxBoxSizer(wxVERTICAL);
     wxBoxSizer* sizer_5 = new wxBoxSizer(wxHORIZONTAL);
     wxBoxSizer* sizer_2 = new wxBoxSizer(wxVERTICAL);
@@ -130,8 +147,42 @@ void MainWindow::do_layout()
     sizer_4->Add(lblNavisetGps, 0, wxEXPAND, 0);
     sizer_4->Add(20, 20, 14, wxEXPAND, 0);
     tabNaviset->SetSizer(sizer_4);
+    wxStaticText* label_3 = new wxStaticText(tabTrackers_Arnavi, wxID_ANY, wxT("gsm_st"));
+    label_3->SetMinSize(wxSize(70, 16));
+    sizer_7->Add(label_3, 0, 0, 0);
+    sizer_7->Add(spinArnaviGsm, 1, 0, 0);
+    sizer_6->Add(sizer_7, 1, wxEXPAND, 0);
+    wxStaticText* label_4 = new wxStaticText(tabTrackers_Arnavi, wxID_ANY, wxT("Arnavi 5"));
+    label_4->SetMinSize(wxSize(70, 16));
+    sizer_8->Add(label_4, 0, 0, 0);
+    sizer_8->Add(lblArnavi5Gsm, 1, 0, 0);
+    sizer_6->Add(sizer_8, 1, wxEXPAND, 0);
+    wxStaticText* label_5 = new wxStaticText(tabTrackers_Arnavi, wxID_ANY, wxT("Другие"));
+    label_5->SetMinSize(wxSize(70, 16));
+    sizer_9->Add(label_5, 0, 0, 0);
+    sizer_9->Add(lblArnaviOtherGsm, 1, 0, 0);
+    sizer_6->Add(sizer_9, 1, wxEXPAND, 0);
+    sizer_6->Add(20, 20, 3, 0, 0);
+    wxStaticText* label_6 = new wxStaticText(tabTrackers_Arnavi, wxID_ANY, wxT("nav_st"));
+    label_6->SetMinSize(wxSize(70, 16));
+    sizer_10->Add(label_6, 0, 0, 0);
+    sizer_10->Add(spinArnaviNav, 1, 0, 0);
+    sizer_6->Add(sizer_10, 1, wxEXPAND, 0);
+    wxStaticText* label_7 = new wxStaticText(tabTrackers_Arnavi, wxID_ANY, wxT("Arnavi 5"));
+    label_7->SetMinSize(wxSize(70, 16));
+    sizer_11->Add(label_7, 0, 0, 0);
+    sizer_11->Add(lblArnavi5Nav, 1, 0, 0);
+    sizer_6->Add(sizer_11, 1, wxEXPAND, 0);
+    wxStaticText* label_8 = new wxStaticText(tabTrackers_Arnavi, wxID_ANY, wxT("Другие"));
+    label_8->SetMinSize(wxSize(70, 31));
+    sizer_12->Add(label_8, 0, 0, 0);
+    sizer_12->Add(lblArnaviOtherNav, 1, 0, 0);
+    sizer_6->Add(sizer_12, 1, wxEXPAND, 0);
+    sizer_6->Add(20, 20, 7, 0, 0);
+    tabTrackers_Arnavi->SetSizer(sizer_6);
     tabTrackers->AddPage(tabNavtelecom, wxT("Navtelecom"));
     tabTrackers->AddPage(tabNaviset, wxT("Naviset"));
+    tabTrackers->AddPage(tabTrackers_Arnavi, wxT("Arnavi"));
     sizer_1->Add(tabTrackers, 1, wxEXPAND, 0);
     SetSizer(sizer_1);
     Layout();
@@ -243,6 +294,66 @@ void MainWindow::updateNavtelecomStatus(void)
         wxT("Двигатель (генератор) запущен"));
 }
 
+void MainWindow::updateArnaviStatus(void)
+{
+    uint8_t status = static_cast<uint8_t>(spinArnaviGsm->GetValue() & 0xff);
+
+    switch (status)
+    {
+    case 0:
+        lblArnavi5Gsm->SetLabel(wxT("Не запущен"));
+        lblArnaviOtherGsm->SetLabel(wxT("Не запущен"));
+        break;
+    case 1:
+        lblArnavi5Gsm->SetLabel(wxT("Запущен"));
+        lblArnaviOtherGsm->SetLabel(wxT("Запущен"));
+        break;
+    case 2:
+        lblArnavi5Gsm->SetLabel(wxT("AT OK"));
+        lblArnaviOtherGsm->SetLabel(wxT("Тест GPRS"));
+        break;
+    case 3:
+        lblArnavi5Gsm->SetLabel(wxT("Тест GPRS"));
+        lblArnaviOtherGsm->SetLabel(wxT("Подключен к серверу"));
+        break;
+    case 4:
+        lblArnavi5Gsm->SetLabel(wxT("GPRS OK"));
+        lblArnaviOtherGsm->SetLabel(wxT("-"));
+        break;
+    default:
+        lblArnavi5Gsm->SetLabel(wxT("-"));
+        lblArnaviOtherGsm->SetLabel(wxT("-"));
+        break;
+    }
+
+    status = static_cast<uint8_t>(spinArnaviNav->GetValue() & 0xff);
+
+    switch (status)
+    {
+    case 0:
+        lblArnavi5Nav->SetLabel(wxT("Не запущен"));
+        lblArnaviOtherNav->SetLabel(wxT("Не запущен"));
+        break;
+    case 1:
+        lblArnavi5Nav->SetLabel(wxT("Запущен"));
+        lblArnaviOtherNav->SetLabel(wxT("Поиск спутников"));
+        break;
+    case 2:
+        lblArnavi5Nav->SetLabel(wxT("Поиск спутников"));
+        lblArnaviOtherNav->SetLabel(wxT("Спутников менее 8"));
+        break;
+    case 3:
+        lblArnavi5Nav->SetLabel(wxT("Спутники захвачены"));
+        lblArnaviOtherNav->SetLabel(wxT("Спутников более 8"));
+        break;
+    default:
+        lblArnavi5Nav->SetLabel(wxT("-"));
+        lblArnaviOtherNav->SetLabel(wxT("-"));
+        break;
+    }
+
+}
+
 
 BEGIN_EVENT_TABLE(MainWindow, wxFrame)
     // begin wxGlade: MainWindow::event_table
@@ -250,6 +361,10 @@ BEGIN_EVENT_TABLE(MainWindow, wxFrame)
     EVT_TEXT(spinNavtelecomId, MainWindow::onSpinNavtelecomTextHandler)
     EVT_SPINCTRL(spinNavisetId, MainWindow::onSpinNavisetHandler)
     EVT_TEXT(spinNavisetId, MainWindow::onSpinNavisetTextHandler)
+    EVT_SPINCTRL(spinArnaviGsmId, MainWindow::onSpinArnaviGsmHandler)
+    EVT_TEXT(spinArnaviGsmId, MainWindow::onSpinArnaviGsmTextHandler)
+    EVT_SPINCTRL(spinArnaviNavId, MainWindow::onSpinArnaviNavHandler)
+    EVT_TEXT(spinArnaviNavId, MainWindow::onSpinArnaviNavTextHandler)
     // end wxGlade
 END_EVENT_TABLE();
 
@@ -281,6 +396,30 @@ void MainWindow::onSpinNavisetTextHandler(wxCommandEvent& event)
 {
     event.Skip();
     updateNavisetStatus();
+}
+
+void MainWindow::onSpinArnaviGsmHandler(wxSpinEvent& event)
+{
+    event.Skip();
+    updateArnaviStatus();
+}
+
+void MainWindow::onSpinArnaviGsmTextHandler(wxCommandEvent& event)
+{
+    event.Skip();
+    updateArnaviStatus();
+}
+
+void MainWindow::onSpinArnaviNavHandler(wxSpinEvent& event)
+{
+    event.Skip();
+    updateArnaviStatus();
+}
+
+void MainWindow::onSpinArnaviNavTextHandler(wxCommandEvent& event)
+{
+    event.Skip();
+    updateArnaviStatus();
 }
 
 

@@ -3,6 +3,11 @@
 
 Программа написана в среде Visual Studio 2019 с использованием кроссплатформенной библиотеки wxWidgets. Для генерации UI использовался инструмент wxGlade.
 
+В настоящий момент поддержана расшифровка параметров для следующих терминалов
+* Navtelecom (протокол FLEX)
+* Naviset
+* Arnavi
+
 # Используемые инструменты
 * [Visual Studio 2019](https://visualstudio.microsoft.com/ru/vs/)
 * [wxWidgets](https://www.wxwidgets.org/)

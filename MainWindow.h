@@ -48,6 +48,7 @@ private:
     // end wxGlade
     void updateNavisetStatus(void);
     void updateNavtelecomStatus(void);
+    void updateArnaviStatus(void);
 
 protected:
     // begin wxGlade: MainWindow::attributes
@@ -69,6 +70,13 @@ protected:
     wxStaticText* lblNavisetGprs;
     wxStaticText* lblNavisetGps;
     wxPanel* tabNaviset;
+    wxSpinCtrl* spinArnaviGsm;
+    wxStaticText* lblArnavi5Gsm;
+    wxStaticText* lblArnaviOtherGsm;
+    wxSpinCtrl* spinArnaviNav;
+    wxStaticText* lblArnavi5Nav;
+    wxStaticText* lblArnaviOtherNav;
+    wxPanel* tabTrackers_Arnavi;
     wxNotebook* tabTrackers;
     // end wxGlade
 
@@ -80,6 +88,10 @@ public:
     void onSpinNavisetHandler(wxSpinEvent &event); // wxGlade: <event_handler>
     void onSpinStatusNavisetHandler(wxCommandEvent &event); // wxGlade: <event_handler>
     void onSpinNavisetTextHandler(wxCommandEvent &event); // wxGlade: <event_handler>
+    void onSpinArnaviGsmHandler(wxSpinEvent &event); // wxGlade: <event_handler>
+    void onSpinArnaviGsmTextHandler(wxCommandEvent &event); // wxGlade: <event_handler>
+    void onSpinArnaviNavHandler(wxSpinEvent &event); // wxGlade: <event_handler>
+    void onSpinArnaviNavTextHandler(wxCommandEvent &event); // wxGlade: <event_handler>
 }; // wxGlade: end class
 
 
