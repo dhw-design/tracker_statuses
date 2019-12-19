@@ -54,10 +54,10 @@ typedef struct _navtelecom_st {
 
 
 MainWindow::MainWindow(wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style):
-    wxFrame(parent, id, title, pos, size, wxDEFAULT_FRAME_STYLE)
+    wxFrame(parent, id, title, pos, size, /*wxDEFAULT_FRAME_STYLE*/ wxSYSTEM_MENU | wxRESIZE_BORDER | wxMINIMIZE_BOX | wxCLOSE_BOX | wxCAPTION | wxCLIP_CHILDREN)
 {
     // begin wxGlade: MainWindow::MainWindow
-    SetSize(wxSize(271, 252));
+    SetSize(wxSize(270, 250));
     tabTrackers = new wxNotebook(this, wxID_ANY);
     tabTrackers_Arnavi = new wxPanel(tabTrackers, wxID_ANY);
     tabNaviset = new wxPanel(tabTrackers, wxID_ANY);
@@ -98,7 +98,12 @@ void MainWindow::set_properties()
 {
     // begin wxGlade: MainWindow::set_properties
     SetTitle(wxT("Статусы трекеров"));
+    spinNavtelecomStatus->SetToolTip(wxT("Значение параметра для расшифровки (в системе Wialon параметр modules_st)"));
+    spinNavisetStatus->SetToolTip(wxT("Значение параметра для расшифровки (в системе Wialon параметр status)"));
+    spinArnaviGsm->SetToolTip(wxT("Значение параметра для расшифровки (в системе Wialon параметр gsm_st)"));
+    spinArnaviNav->SetToolTip(wxT("Значение параметра для расшифровки (в системе Wialon параметр nav_st)"));
     // end wxGlade
+    SetSizeHints(270, 250, 280, 260);
     wxIcon icon(wxICON(IDI_ICON1));
     SetIcon(icon);
 }
