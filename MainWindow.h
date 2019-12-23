@@ -48,6 +48,7 @@ private:
     // end wxGlade
     void updateNavisetStatus(void);
     void updateNavtelecomStatus(void);
+    void updateNavtelecomEventCode(void);
     void updateArnaviStatus(void);
 
 protected:
@@ -61,6 +62,8 @@ protected:
     wxStaticText* lblNavtelecomGsmReg;
     wxStaticText* lblNavtelecomRouming;
     wxStaticText* lblNavtelecomGenerator;
+    wxSpinCtrl* spinNavtelecomEventCode;
+    wxStaticText* lblNavtelecomEventCode;
     wxPanel* tabNavtelecom;
     wxSpinCtrl* spinNavisetStatus;
     wxStaticText* lblNavisetPwrExt;
@@ -92,6 +95,8 @@ public:
     void onSpinArnaviGsmTextHandler(wxCommandEvent &event); // wxGlade: <event_handler>
     void onSpinArnaviNavHandler(wxSpinEvent &event); // wxGlade: <event_handler>
     void onSpinArnaviNavTextHandler(wxCommandEvent &event); // wxGlade: <event_handler>
+    void onSpinNavtelecomEventCodeHandler(wxSpinEvent &event); // wxGlade: <event_handler>
+    void onSpinNavtelecomEventCodeTextHandler(wxCommandEvent &event); // wxGlade: <event_handler>
 }; // wxGlade: end class
 
 
