@@ -1,12 +1,12 @@
-/********************************************************************************
- * project     Tracker statuses                                                 *
- *                                                                              *
- * file        MainWindow.cpp                                                   *
- * author      Dmitriy Bassamykin                                               *
- * date        12.12.2019                                                       *
- * copyright   The MIT License (MIT). Copyright (c) 2019 Dmitriy Bassamykin     *
- *                                                                              *
- ********************************************************************************/
+/*********************************************************************************
+ * project     Tracker statuses                                                  *
+ *                                                                               *
+ * file        MainWindow.cpp                                                    *
+ * author      Dmitriy Bassamykin                                                *
+ * date        12.12.2019                                                        *
+ * copyright   The MIT License (MIT). Copyright (c) 2019-2020 Dmitriy Bassamykin *
+ *                                                                               *
+ *********************************************************************************/
 
 // -*- C++ -*-
 //
@@ -333,58 +333,85 @@ void MainWindow::updateNavtelecomEventCode(void)
         lblNavtelecomEventCode->SetLabel(wxT("Переход в тестовый режим по линии статуса STS"));
         break;
     case 4353U:
-        lblNavtelecomEventCode->SetLabel(wxT("Вход I1 активирован"));
+        lblNavtelecomEventCode->SetLabel(wxT("Вход №1 активирован"));
         break;
     case 4356U:
-        lblNavtelecomEventCode->SetLabel(wxT("Вход I1 в норме"));
+        lblNavtelecomEventCode->SetLabel(wxT("Вход №1 в норме"));
         break;
     case 4369U:
-        lblNavtelecomEventCode->SetLabel(wxT("Вход I2 активирован"));
+        lblNavtelecomEventCode->SetLabel(wxT("Вход №2 активирован"));
         break;
     case 4372U:
-        lblNavtelecomEventCode->SetLabel(wxT("Вход I2 в норме"));
+        lblNavtelecomEventCode->SetLabel(wxT("Вход №2 в норме"));
         break;
     case 4385U:
-        lblNavtelecomEventCode->SetLabel(wxT("Вход I3 активирован"));
+        lblNavtelecomEventCode->SetLabel(wxT("Вход №3 активирован"));
         break;
     case 4388U:
-        lblNavtelecomEventCode->SetLabel(wxT("Вход I3 в норме"));
+        lblNavtelecomEventCode->SetLabel(wxT("Вход №3 в норме"));
         break;
     case 4401U:
-        lblNavtelecomEventCode->SetLabel(wxT("Вход I4 активирован"));
+        lblNavtelecomEventCode->SetLabel(wxT("Вход №4 активирован"));
         break;
     case 4404U:
-        lblNavtelecomEventCode->SetLabel(wxT("Вход I4 в норме"));
+        lblNavtelecomEventCode->SetLabel(wxT("Вход №4 в норме"));
         break;
     case 4417U:
-        lblNavtelecomEventCode->SetLabel(wxT("Вход I5 активирован"));
+        lblNavtelecomEventCode->SetLabel(wxT("Вход №5 активирован"));
         break;
     case 4418U:
-        lblNavtelecomEventCode->SetLabel(wxT("Вход I5 короткозамкнут"));
+        lblNavtelecomEventCode->SetLabel(wxT("Вход №5 короткозамкнут"));
         break;
     case 4419U:
-        lblNavtelecomEventCode->SetLabel(wxT("Вход I5 оборван"));
+        lblNavtelecomEventCode->SetLabel(wxT("Вход №5 оборван"));
         break;
     case 4420U:
-        lblNavtelecomEventCode->SetLabel(wxT("Вход I5 в норме"));
+        lblNavtelecomEventCode->SetLabel(wxT("Вход №5 в норме"));
         break;
     case 4421U:
-        lblNavtelecomEventCode->SetLabel(wxT("Вход I5 предварительно активирован"));
+        lblNavtelecomEventCode->SetLabel(wxT("Вход №5 предварительно активирован"));
         break;
     case 4433U:
-        lblNavtelecomEventCode->SetLabel(wxT("Вход I6 активирован"));
+        lblNavtelecomEventCode->SetLabel(wxT("Вход №6 активирован"));
         break;
     case 4434U:
-        lblNavtelecomEventCode->SetLabel(wxT("Вход I6 короткозамкнут"));
+        lblNavtelecomEventCode->SetLabel(wxT("Вход №6 короткозамкнут"));
         break;
     case 4435U:
-        lblNavtelecomEventCode->SetLabel(wxT("Вход I6 оборван"));
+        lblNavtelecomEventCode->SetLabel(wxT("Вход №6 оборван"));
         break;
     case 4436U:
-        lblNavtelecomEventCode->SetLabel(wxT("Вход I6 в норме"));
+        lblNavtelecomEventCode->SetLabel(wxT("Вход №6 в норме"));
         break;
     case 4437U:
-        lblNavtelecomEventCode->SetLabel(wxT("Вход I6 предварительно активирован"));
+        lblNavtelecomEventCode->SetLabel(wxT("Вход №6 предварительно активирован"));
+        break;
+    case 4513U:
+        lblNavtelecomEventCode->SetLabel(wxT("Сработал датчик слабого удара"));
+        break;
+    case 4515U:
+        lblNavtelecomEventCode->SetLabel(wxT("Ошибка работы с акселерометром"));
+        break;
+    case 4516U:
+        lblNavtelecomEventCode->SetLabel(wxT("Датчик слабого удара в норме"));
+        break;
+    case 4529U:
+        lblNavtelecomEventCode->SetLabel(wxT("Сработал датчик сильного удара"));
+        break;
+    case 4532U:
+        lblNavtelecomEventCode->SetLabel(wxT("Датчик сильного удара в норме"));
+        break;
+    case 4545U:
+        lblNavtelecomEventCode->SetLabel(wxT("Сработал датчик перемещения"));
+        break;
+    case 4548U:
+        lblNavtelecomEventCode->SetLabel(wxT("Датчик перемещения в норме"));
+        break;
+    case 4561U:
+        lblNavtelecomEventCode->SetLabel(wxT("Сработал датчик наклона"));
+        break;
+    case 4564U:
+        lblNavtelecomEventCode->SetLabel(wxT("Датчик наклона в норме"));
         break;
     case 4628U:
         lblNavtelecomEventCode->SetLabel(wxT("Вход I7 активирован"));
@@ -410,107 +437,143 @@ void MainWindow::updateNavtelecomEventCode(void)
     case 4647U:
         lblNavtelecomEventCode->SetLabel(wxT("Вход I8 в норме"));
         break;
-    case 4513U:
-        lblNavtelecomEventCode->SetLabel(wxT("Сработал датчик слабого удара"));
-        break;
-    case 4529U:
-        lblNavtelecomEventCode->SetLabel(wxT("Сработал датчик сильного удара"));
-        break;
-    case 4545U:
-        lblNavtelecomEventCode->SetLabel(wxT("Сработал датчик перемещения"));
-        break;
-    case 4561U:
-        lblNavtelecomEventCode->SetLabel(wxT("Сработал датчик наклона"));
-        break;
-    case 4576U:
-        lblNavtelecomEventCode->SetLabel(wxT("Включено зажигание (по напряжению питания)"));
-        break;
-    case 4577U:
-        lblNavtelecomEventCode->SetLabel(wxT("Выключено зажигание (по напряжению питания)"));
-        break;
     case 4656U:
-        lblNavtelecomEventCode->SetLabel(wxT("Напряжение на основном аккумуляторе понизилось ниже нижнего порога"));
+        lblNavtelecomEventCode->SetLabel(wxT("Напряжение на основном аккумуляторе меньше нижнего порога"));
         break;
     case 4657U:
-        lblNavtelecomEventCode->SetLabel(wxT("Напряжение на основном аккумуляторе повысилось выше нижнего порога (восстановилось)"));
+        lblNavtelecomEventCode->SetLabel(wxT("Напряжение на основном аккумуляторе восстановилось"));
         break;
     case 4672U:
-        lblNavtelecomEventCode->SetLabel(wxT("Напряжение на резервном аккумуляторе понизилось ниже нижнего порога"));
+        lblNavtelecomEventCode->SetLabel(wxT("Напряжение на резервном аккумуляторе меньше нижнего порога"));
         break;
     case 4673U:
-        lblNavtelecomEventCode->SetLabel(wxT("Напряжение на резервном аккумуляторе повысилось выше нижнего порога (восстановилось)"));
+        lblNavtelecomEventCode->SetLabel(wxT("Напряжение на резервном аккумуляторе восстановилось"));
+        break;
+    case 4688U:
+        lblNavtelecomEventCode->SetLabel(wxT("Датчик работы двигателя: Включено зажигание (по напряжению питания)"));
+        break;
+    case 4689U:
+        lblNavtelecomEventCode->SetLabel(wxT("Датчик работы двигателя: Выключено зажигание (по напряжению питания)"));
         break;
     case 4880U:
-        lblNavtelecomEventCode->SetLabel(wxT("Температура внутри устройства понизилась ниже нижнего порога (для устройств с внутренним датчиком)"));
+        lblNavtelecomEventCode->SetLabel(wxT("Температура на внешнем датчике №1 понизилась ниже нижнего порога"));
         break;
     case 4882U:
-        lblNavtelecomEventCode->SetLabel(wxT("Температура внутри устройства повысилась выше верхнего порога (для устройств с внутренним датчиком)"));
+        lblNavtelecomEventCode->SetLabel(wxT("Температура на внешнем датчике №1 повысилась выше верхнего порога"));
         break;
     case 4883U:
-        lblNavtelecomEventCode->SetLabel(wxT("Температура внутри устройства в норме (для устройств с внутренним датчиком)"));
+        lblNavtelecomEventCode->SetLabel(wxT("Температура на внешнем датчике №1 вернулась в норму"));
         break;
     case 4884U:
-        lblNavtelecomEventCode->SetLabel(wxT("Первый внешний температурный датчик оборван"));
+        lblNavtelecomEventCode->SetLabel(wxT("Внешний температурный датчик №1 оборван"));
         break;
     case 4896U:
-        lblNavtelecomEventCode->SetLabel(wxT("Температура на втором внешнем датчике понизилась ниже"));
+        lblNavtelecomEventCode->SetLabel(wxT("Температура на внешнем датчике №2 понизилась ниже нижнего порога"));
         break;
     case 4898U:
-        lblNavtelecomEventCode->SetLabel(wxT("Температура на втором внешнем датчике повысилась выше верхнего порога"));
+        lblNavtelecomEventCode->SetLabel(wxT("Температура на внешнем датчике №2 повысилась выше верхнего порога"));
         break;
     case 4899U:
-        lblNavtelecomEventCode->SetLabel(wxT("Температура на втором внешнем датчике вернулась в норму"));
+        lblNavtelecomEventCode->SetLabel(wxT("Температура на внешнем датчике №2 вернулась в норму"));
         break;
     case 4900U:
-        lblNavtelecomEventCode->SetLabel(wxT("Второй внешний температурный датчик оборван"));
+        lblNavtelecomEventCode->SetLabel(wxT("Внешний температурный датчик №2 оборван"));
         break;
     case 4912U:
-        lblNavtelecomEventCode->SetLabel(wxT("Температура на третьем внешнем датчике понизилась ниже нижнего порога"));
+        lblNavtelecomEventCode->SetLabel(wxT("Температура на внешнем датчике №3 понизилась ниже нижнего порога"));
         break;
     case 4914U:
-        lblNavtelecomEventCode->SetLabel(wxT("Температура на третьем внешнем датчике повысилась выше верхнего порога"));
+        lblNavtelecomEventCode->SetLabel(wxT("Температура на внешнем датчике №3 повысилась выше верхнего порога"));
         break;
     case 4915U:
-        lblNavtelecomEventCode->SetLabel(wxT("Температура на третьем внешнем датчике вернулась в норму"));
+        lblNavtelecomEventCode->SetLabel(wxT("Температура на внешнем датчике №3 вернулась в норму"));
         break;
     case 4916U:
-        lblNavtelecomEventCode->SetLabel(wxT("Третий внешний температурный датчик оборван"));
+        lblNavtelecomEventCode->SetLabel(wxT("Внешний температурный датчик №3 оборван"));
         break;
     case 4928U:
-        lblNavtelecomEventCode->SetLabel(wxT("Температура на четвертом внешнем датчике понизилась ниже нижнего порога"));
+        lblNavtelecomEventCode->SetLabel(wxT("Температура на внешнем датчике №4 понизилась ниже нижнего порога"));
         break;
     case 4930U:
-        lblNavtelecomEventCode->SetLabel(wxT("Температура на четвертом внешнем датчике повысилась выше верхнего порога"));
+        lblNavtelecomEventCode->SetLabel(wxT("Температура на внешнем датчике №4 повысилась выше верхнего порога"));
         break;
     case 4931U:
-        lblNavtelecomEventCode->SetLabel(wxT("Температура на четвертом внешнем датчике вернулась в норму"));
+        lblNavtelecomEventCode->SetLabel(wxT("Температура на внешнем датчике №4 вернулась в норму"));
         break;
     case 4932U:
-        lblNavtelecomEventCode->SetLabel(wxT("Четвертый внешний температурный датчик оборван"));
+        lblNavtelecomEventCode->SetLabel(wxT("Внешний температурный датчик №4 оборван"));
+        break;
+    case 4944U:
+        lblNavtelecomEventCode->SetLabel(wxT("Температура на внешнем датчике №5 понизилась ниже нижнего порога"));
+        break;
+    case 4946U:
+        lblNavtelecomEventCode->SetLabel(wxT("Температура на внешнем датчике №5 повысилась выше верхнего порога"));
+        break;
+    case 4947U:
+        lblNavtelecomEventCode->SetLabel(wxT("Температура на внешнем датчике №5 вернулась в норму"));
+        break;
+    case 4948U:
+        lblNavtelecomEventCode->SetLabel(wxT("Внешний температурный датчик №5 оборван"));
+        break;
+    case 4960U:
+        lblNavtelecomEventCode->SetLabel(wxT("Температура на внешнем датчике №6 понизилась ниже нижнего порога"));
+        break;
+    case 4962U:
+        lblNavtelecomEventCode->SetLabel(wxT("Температура на внешнем датчике №6 повысилась выше верхнего порога"));
+        break;
+    case 4963U:
+        lblNavtelecomEventCode->SetLabel(wxT("Температура на внешнем датчике №6 вернулась в норму"));
+        break;
+    case 4964U:
+        lblNavtelecomEventCode->SetLabel(wxT("Внешний температурный датчик №6 оборван"));
+        break;
+    case 4976U:
+        lblNavtelecomEventCode->SetLabel(wxT("Температура на внешнем датчике №7 понизилась ниже нижнего порога"));
+        break;
+    case 4978U:
+        lblNavtelecomEventCode->SetLabel(wxT("Температура на внешнем датчике №7 повысилась выше верхнего порога"));
+        break;
+    case 4979U:
+        lblNavtelecomEventCode->SetLabel(wxT("Температура на внешнем датчике №7 вернулась в норму"));
+        break;
+    case 4980U:
+        lblNavtelecomEventCode->SetLabel(wxT("Внешний температурный датчик №7 оборван"));
+        break;
+    case 4992U:
+        lblNavtelecomEventCode->SetLabel(wxT("Температура на внешнем датчике №8 понизилась ниже нижнего порога"));
+        break;
+    case 4994U:
+        lblNavtelecomEventCode->SetLabel(wxT("Температура на внешнем датчике №8 повысилась выше верхнего порога"));
+        break;
+    case 4995U:
+        lblNavtelecomEventCode->SetLabel(wxT("Температура на внешнем датчике №8 вернулась в норму"));
+        break;
+    case 4996U:
+        lblNavtelecomEventCode->SetLabel(wxT("Внешний температурный датчик №8 оборван"));
         break;
     case 5173U:
-        lblNavtelecomEventCode->SetLabel(wxT("Автоматическое включение выходной линии О1"));
+        lblNavtelecomEventCode->SetLabel(wxT("Автоматическое включение выхода О1"));
         break;
     case 5172U:
-        lblNavtelecomEventCode->SetLabel(wxT("Автоматическое выключение выходной линии О1"));
+        lblNavtelecomEventCode->SetLabel(wxT("Автоматическое выключение выхода О1"));
         break;
     case 5153U:
-        lblNavtelecomEventCode->SetLabel(wxT("Автоматическое включение выходной линии О2"));
+        lblNavtelecomEventCode->SetLabel(wxT("Автоматическое включение выхода О2"));
         break;
     case 5152U:
-        lblNavtelecomEventCode->SetLabel(wxT("Автоматическое выключение выходной линии О2"));
+        lblNavtelecomEventCode->SetLabel(wxT("Автоматическое выключение выхода О2"));
         break;
     case 5169U:
-        lblNavtelecomEventCode->SetLabel(wxT("Автоматическое включение выходной линии О3"));
+        lblNavtelecomEventCode->SetLabel(wxT("Автоматическое включение выхода О3"));
         break;
     case 5168U:
-        lblNavtelecomEventCode->SetLabel(wxT("Автоматическое выключение выходной линии О3"));
+        lblNavtelecomEventCode->SetLabel(wxT("Автоматическое выключение выхода О3"));
         break;
     case 5185U:
-        lblNavtelecomEventCode->SetLabel(wxT("Автоматическое включение выходной линии О4"));
+        lblNavtelecomEventCode->SetLabel(wxT("Автоматическое включение выхода О4"));
         break;
     case 5184U:
-        lblNavtelecomEventCode->SetLabel(wxT("Автоматическое выключение выходной линии О4"));
+        lblNavtelecomEventCode->SetLabel(wxT("Автоматическое выключение выхода О4"));
         break;
     case 5376U:
         lblNavtelecomEventCode->SetLabel(wxT("Включение устройства"));
@@ -521,13 +584,19 @@ void MainWindow::updateNavtelecomEventCode(void)
     case 5378U:
         lblNavtelecomEventCode->SetLabel(wxT("Вход в рабочий режим"));
         break;
-    case 5392U:
-        lblNavtelecomEventCode->SetLabel(wxT("Команда синхронизация данных с сервером 1"));
+    case 5379U:
+        lblNavtelecomEventCode->SetLabel(wxT("Изменилось состояние датчика глушения"));
+        break;
+    case 5380U:
+        lblNavtelecomEventCode->SetLabel(wxT("Тревога"));
         break;
     case 5393U:
-        lblNavtelecomEventCode->SetLabel(wxT("Команда синхронизация данных с сервером 2"));
+        lblNavtelecomEventCode->SetLabel(wxT("Команда синхронизация данных с сервером 1"));
         break;
     case 5394U:
+        lblNavtelecomEventCode->SetLabel(wxT("Команда синхронизация данных с сервером 2"));
+        break;
+    case 5395U:
         lblNavtelecomEventCode->SetLabel(wxT("Команда синхронизация данных с сервером 3"));
         break;
     case 5633U:
@@ -540,13 +609,13 @@ void MainWindow::updateNavtelecomEventCode(void)
         lblNavtelecomEventCode->SetLabel(wxT("Таймер записи телеметрии в память в режиме охраны по профилю №1"));
         break;
     case 5636U:
-        lblNavtelecomEventCode->SetLabel(wxT("Таймер отправки накопленных в черном ящике телеметрических отсчётов на GPRS сервер"));
+        lblNavtelecomEventCode->SetLabel(wxT("Таймер отправки накопленных в черном ящике телемерических отсчётов на GPRS сервер"));
         break;
     case 5889U:
-        lblNavtelecomEventCode->SetLabel(wxT("Включение GPS"));
+        lblNavtelecomEventCode->SetLabel(wxT("Включение GPS-модуля"));
         break;
     case 5890U:
-        lblNavtelecomEventCode->SetLabel(wxT("Выключение GPS"));
+        lblNavtelecomEventCode->SetLabel(wxT("Выключение GPS-модуля"));
         break;
     case 5891U:
         lblNavtelecomEventCode->SetLabel(wxT("Первая валидная навигация после включения"));
@@ -575,50 +644,263 @@ void MainWindow::updateNavtelecomEventCode(void)
     case 5899U:
         lblNavtelecomEventCode->SetLabel(wxT("Таймер записи телеметрии от последнего текущего события"));
         break;
+    case 5900U:
+        lblNavtelecomEventCode->SetLabel(wxT("Происходит эвакуация"));
+        break;
+    case 5901U:
+        lblNavtelecomEventCode->SetLabel(wxT("Окончание эвакуации"));
+        break;
+    case 5904U:
+        lblNavtelecomEventCode->SetLabel(wxT("Автоинформатор: объект вошёл в геозону"));
+        break;
+    case 5905U:
+        lblNavtelecomEventCode->SetLabel(wxT("Автоинформатор: объект вышел из геозоны"));
+        break;
+    case 5906U:
+        lblNavtelecomEventCode->SetLabel(wxT("Режимы движения: превышение скорости"));
+        break;
+    case 5907U:
+        lblNavtelecomEventCode->SetLabel(wxT("Режимы движения: скорость в норме"));
+        break;
+    case 5936U:
+        lblNavtelecomEventCode->SetLabel(wxT("EcoDriving: Превышена скорость. Порог 1"));
+        break;
+    case 5937U:
+        lblNavtelecomEventCode->SetLabel(wxT("EcoDriving: Скорость в норме. Порог 1"));
+        break;
+    case 5938U:
+        lblNavtelecomEventCode->SetLabel(wxT("EcoDriving: Превышена скорость. Порог 2"));
+        break;
+    case 5939U:
+        lblNavtelecomEventCode->SetLabel(wxT("EcoDriving: Скорость в норме. Порог 2"));
+        break;
+    case 5940U:
+        lblNavtelecomEventCode->SetLabel(wxT("EcoDriving: Превышена скорость. Порог 3"));
+        break;
+    case 5941U:
+        lblNavtelecomEventCode->SetLabel(wxT("EcoDriving: Скорость в норме. Порог 3"));
+        break;
+    case 5942U:
+        lblNavtelecomEventCode->SetLabel(wxT("EcoDriving: Превышена скорость. Порог 4"));
+        break;
+    case 5943U:
+        lblNavtelecomEventCode->SetLabel(wxT("EcoDriving: Скорость в норме. Порог 4"));
+        break;
+    case 5944U:
+        lblNavtelecomEventCode->SetLabel(wxT("EcoDriving: Превышена скорость. Порог 5"));
+        break;
+    case 5945U:
+        lblNavtelecomEventCode->SetLabel(wxT("EcoDriving: Скорость в норме. Порог 5"));
+        break;
+    case 5946U:
+        lblNavtelecomEventCode->SetLabel(wxT("EcoDriving: Превышена скорость. Порог 6"));
+        break;
+    case 5947U:
+        lblNavtelecomEventCode->SetLabel(wxT("EcoDriving: Скорость в норме. Порог 6"));
+        break;
+    case 5952U:
+        lblNavtelecomEventCode->SetLabel(wxT("EcoDriving: Превышено ускорение. Порог 1"));
+        break;
+    case 5953U:
+        lblNavtelecomEventCode->SetLabel(wxT("EcoDriving: Ускорение в норме. Порог 1"));
+        break;
+    case 5954U:
+        lblNavtelecomEventCode->SetLabel(wxT("EcoDriving: Превышено ускорение. Порог 2"));
+        break;
+    case 5955U:
+        lblNavtelecomEventCode->SetLabel(wxT("EcoDriving: Ускорение в норме. Порог 2"));
+        break;
+    case 5956U:
+        lblNavtelecomEventCode->SetLabel(wxT("EcoDriving: Превышено ускорение. Порог 3"));
+        break;
+    case 5957U:
+        lblNavtelecomEventCode->SetLabel(wxT("EcoDriving: Ускорение в норме. Порог 3"));
+        break;
+    case 5958U:
+        lblNavtelecomEventCode->SetLabel(wxT("EcoDriving: Превышено ускорение. Порог 4"));
+        break;
+    case 5959U:
+        lblNavtelecomEventCode->SetLabel(wxT("EcoDriving: Ускорение в норме. Порог 4"));
+        break;
+    case 5968U:
+        lblNavtelecomEventCode->SetLabel(wxT("EcoDriving: Превышено замедление. Порог 1"));
+        break;
+    case 5969U:
+        lblNavtelecomEventCode->SetLabel(wxT("EcoDriving: Замедление в норме. Порог 1"));
+        break;
+    case 5970U:
+        lblNavtelecomEventCode->SetLabel(wxT("EcoDriving: Превышено замедление. Порог 2"));
+        break;
+    case 5971U:
+        lblNavtelecomEventCode->SetLabel(wxT("EcoDriving: Замедление в норме. Порог 2"));
+        break;
+    case 5972U:
+        lblNavtelecomEventCode->SetLabel(wxT("EcoDriving: Превышено замедление. Порог 3"));
+        break;
+    case 5973U:
+        lblNavtelecomEventCode->SetLabel(wxT("EcoDriving: Замедление в норме. Порог 3"));
+        break;
+    case 5974U:
+        lblNavtelecomEventCode->SetLabel(wxT("EcoDriving: Превышено замедление. Порог 4"));
+        break;
+    case 5975U:
+        lblNavtelecomEventCode->SetLabel(wxT("EcoDriving: Замедление в норме. Порог 4"));
+        break;
+    case 5984U:
+        lblNavtelecomEventCode->SetLabel(wxT("EcoDriving: Превышено ускорение влево. Порог 1"));
+        break;
+    case 5985U:
+        lblNavtelecomEventCode->SetLabel(wxT("EcoDriving: Ускорение влево в норме. Порог 1"));
+        break;
+    case 5986U:
+        lblNavtelecomEventCode->SetLabel(wxT("EcoDriving: Превышено ускорение влево. Порог 2"));
+        break;
+    case 5987U:
+        lblNavtelecomEventCode->SetLabel(wxT("EcoDriving: Ускорение влево в норме. Порог 2"));
+        break;
+    case 5988U:
+        lblNavtelecomEventCode->SetLabel(wxT("EcoDriving: Превышено ускорение влево. Порог 3"));
+        break;
+    case 5989U:
+        lblNavtelecomEventCode->SetLabel(wxT("EcoDriving: Ускорение влево в норме. Порог 3"));
+        break;
+    case 5990U:
+        lblNavtelecomEventCode->SetLabel(wxT("EcoDriving: Превышено ускорение влево. Порог 4"));
+        break;
+    case 5991U:
+        lblNavtelecomEventCode->SetLabel(wxT("EcoDriving: Ускорение влево в норме. Порог 4"));
+        break;
+    case 6000U:
+        lblNavtelecomEventCode->SetLabel(wxT("EcoDriving: Превышено ускорение вправо. Порог 1"));
+        break;
+    case 6001U:
+        lblNavtelecomEventCode->SetLabel(wxT("EcoDriving: Ускорение вправо в норме. Порог 1"));
+        break;
+    case 6002U:
+        lblNavtelecomEventCode->SetLabel(wxT("EcoDriving: Превышено ускорение вправо. Порог 2"));
+        break;
+    case 6003U:
+        lblNavtelecomEventCode->SetLabel(wxT("EcoDriving: Ускорение вправо в норме. Порог 2"));
+        break;
+    case 6004U:
+        lblNavtelecomEventCode->SetLabel(wxT("EcoDriving: Превышено ускорение вправо. Порог 3"));
+        break;
+    case 6005U:
+        lblNavtelecomEventCode->SetLabel(wxT("EcoDriving: Ускорение вправо в норме. Порог 3"));
+        break;
+    case 6006U:
+        lblNavtelecomEventCode->SetLabel(wxT("EcoDriving: Превышено ускорение вправо. Порог 4"));
+        break;
+    case 6007U:
+        lblNavtelecomEventCode->SetLabel(wxT("EcoDriving: Ускорение вправо в норме. Порог 4"));
+        break;
+    case 6016U:
+        lblNavtelecomEventCode->SetLabel(wxT("EcoDriving: Превышено вертикальное ускорение. Порог 1"));
+        break;
+    case 6017U:
+        lblNavtelecomEventCode->SetLabel(wxT("EcoDriving: Вертикальное ускорение в норме. Порог 1"));
+        break;
+    case 6018U:
+        lblNavtelecomEventCode->SetLabel(wxT("EcoDriving: Превышено вертикальное ускорение. Порог 2"));
+        break;
+    case 6019U:
+        lblNavtelecomEventCode->SetLabel(wxT("EcoDriving: Вертикальное ускорение в норме. Порог 2"));
+        break;
+    case 6020U:
+        lblNavtelecomEventCode->SetLabel(wxT("EcoDriving: Превышено вертикальное ускорение. Порог 3"));
+        break;
+    case 6021U:
+        lblNavtelecomEventCode->SetLabel(wxT("EcoDriving: Вертикальное ускорение в норме. Порог 3"));
+        break;
+    case 6022U:
+        lblNavtelecomEventCode->SetLabel(wxT("EcoDriving: Превышено вертикальное ускорение. Порог 4"));
+        break;
+    case 6023U:
+        lblNavtelecomEventCode->SetLabel(wxT("EcoDriving: Вертикальное ускорение в норме. Порог 4"));
+        break;
+    case 6032U:
+        lblNavtelecomEventCode->SetLabel(wxT("EcoDriving: Нарушение, не пристёгнут ремень безопасности"));
+        break;
+    case 6033U:
+        lblNavtelecomEventCode->SetLabel(wxT("EcoDriving: Отмена нарушения, пристёгнут ремень безопасности"));
+        break;
+    case 6034U:
+        lblNavtelecomEventCode->SetLabel(wxT("EcoDriving: Нарушение, не включен ближний свет"));
+        break;
+    case 6035U:
+        lblNavtelecomEventCode->SetLabel(wxT("EcoDriving: Отмена нарушения, включен ближний свет"));
+        break;
     case 6048U:
-        lblNavtelecomEventCode->SetLabel(wxT("Напряжение на входе A1 или A2 повысилось на заданный порог"));
+        lblNavtelecomEventCode->SetLabel(wxT("Напряжение на аналоговом входе повысилось на заданный порог"));
         break;
     case 6064U:
-        lblNavtelecomEventCode->SetLabel(wxT("Напряжение на входе A1 или A2 понизилось на заданный порог"));
+        lblNavtelecomEventCode->SetLabel(wxT("Напряжение на аналоговом входе понизилось на заданный порог"));
         break;
     case 6080U:
-        lblNavtelecomEventCode->SetLabel(wxT("Уровень топлива повысился на заданный порог"));
+        lblNavtelecomEventCode->SetLabel(wxT("Уровень топлива или частота на импульсном входе повысились на заданный порог"));
         break;
     case 6096U:
-        lblNavtelecomEventCode->SetLabel(wxT("Уровень топлива понизился на заданный порог"));
+        lblNavtelecomEventCode->SetLabel(wxT("Уровень топлива или частота на импульсном входе понизились на заданный порог"));
         break;
     case 6112U:
-        lblNavtelecomEventCode->SetLabel(wxT("Уровень топлива изменился"));
+        lblNavtelecomEventCode->SetLabel(wxT("CAN: Уровень топлива изменился"));
         break;
     case 6113U:
-        lblNavtelecomEventCode->SetLabel(wxT("Вес изменился"));
+        lblNavtelecomEventCode->SetLabel(wxT("CAN: Вес изменился"));
         break;
     case 6114U:
-        lblNavtelecomEventCode->SetLabel(wxT("Обороты двигателя изменились"));
+        lblNavtelecomEventCode->SetLabel(wxT("CAN: Обороты двигателя изменились"));
         break;
     case 6115U:
-        lblNavtelecomEventCode->SetLabel(wxT("Нагрузка на двигатель изменилась"));
+        lblNavtelecomEventCode->SetLabel(wxT("CAN: Нагрузка на двигатель изменилась"));
         break;
     case 6116U:
-        lblNavtelecomEventCode->SetLabel(wxT("Положение педали газа изменилось"));
+        lblNavtelecomEventCode->SetLabel(wxT("CAN: Положение педали газа изменилось"));
         break;
     case 6117U:
-        lblNavtelecomEventCode->SetLabel(wxT("Положение педали тормоза изменилось"));
+        lblNavtelecomEventCode->SetLabel(wxT("CAN: Положение педали тормоза изменилось"));
         break;
     case 6118U:
-        lblNavtelecomEventCode->SetLabel(wxT("Скорость изменилась"));
+        lblNavtelecomEventCode->SetLabel(wxT("CAN: Скорость изменилась"));
+        break;
+    case 6120U:
+        lblNavtelecomEventCode->SetLabel(wxT("CAN: Обороты больше максимально заданных"));
+        break;
+    case 6121U:
+        lblNavtelecomEventCode->SetLabel(wxT("CAN: Обороты меньше максимально заданных"));
+        break;
+    case 6122U:
+        lblNavtelecomEventCode->SetLabel(wxT("CAN: Изменились стандартные параметры"));
+        break;
+    case 6123U:
+        lblNavtelecomEventCode->SetLabel(wxT("CAN: Изменились пользовательские параметры"));
+        break;
+    case 6124U:
+        lblNavtelecomEventCode->SetLabel(wxT("CAN: Изменились дополнительные параметры"));
         break;
     case 6145U:
-        lblNavtelecomEventCode->SetLabel(wxT("Включение GSM"));
+        lblNavtelecomEventCode->SetLabel(wxT("Включение GSM-модуля"));
         break;
     case 6146U:
-        lblNavtelecomEventCode->SetLabel(wxT("Выключение"));
+        lblNavtelecomEventCode->SetLabel(wxT("Выключение GSM-модуля"));
         break;
     case 6147U:
         lblNavtelecomEventCode->SetLabel(wxT("Регистрация GSM в сети"));
         break;
     case 6148U:
-        lblNavtelecomEventCode->SetLabel(wxT("Потеря регистрации"));
+        lblNavtelecomEventCode->SetLabel(wxT("Потеря регистрации GSM"));
+        break;
+    case 6149U:
+        lblNavtelecomEventCode->SetLabel(wxT("Лоток SIM-карты извлечен из устройства"));
+        break;
+    case 6150U:
+        lblNavtelecomEventCode->SetLabel(wxT("Лоток SIM-карты установлен в устройство"));
+        break;
+    case 6398U:
+        lblNavtelecomEventCode->SetLabel(wxT("Постановка на охрану по брелоку"));
+        break;
+    case 6399U:
+        lblNavtelecomEventCode->SetLabel(wxT("Снятие с охраны по брелоку"));
         break;
     case 6400U:
         lblNavtelecomEventCode->SetLabel(wxT("Постановка на охрану по брелоку №1"));
@@ -812,6 +1094,207 @@ void MainWindow::updateNavtelecomEventCode(void)
     case 6463U:
         lblNavtelecomEventCode->SetLabel(wxT("Снятие с охраны по брелоку №32"));
         break;
+    case 6464U:
+        lblNavtelecomEventCode->SetLabel(wxT("Постановка на охрану по брелоку №33"));
+        break;
+    case 6465U:
+        lblNavtelecomEventCode->SetLabel(wxT("Снятие с охраны по брелоку №33"));
+        break;
+    case 6466U:
+        lblNavtelecomEventCode->SetLabel(wxT("Постановка на охрану по брелоку №34"));
+        break;
+    case 6467U:
+        lblNavtelecomEventCode->SetLabel(wxT("Снятие с охраны по брелоку №34"));
+        break;
+    case 6468U:
+        lblNavtelecomEventCode->SetLabel(wxT("Постановка на охрану по брелоку №35"));
+        break;
+    case 6469U:
+        lblNavtelecomEventCode->SetLabel(wxT("Снятие с охраны по брелоку №35"));
+        break;
+    case 6470U:
+        lblNavtelecomEventCode->SetLabel(wxT("Постановка на охрану по брелоку №36"));
+        break;
+    case 6471U:
+        lblNavtelecomEventCode->SetLabel(wxT("Снятие с охраны по брелоку №36"));
+        break;
+    case 6472U:
+        lblNavtelecomEventCode->SetLabel(wxT("Постановка на охрану по брелоку №37"));
+        break;
+    case 6473U:
+        lblNavtelecomEventCode->SetLabel(wxT("Снятие с охраны по брелоку №37"));
+        break;
+    case 6474U:
+        lblNavtelecomEventCode->SetLabel(wxT("Постановка на охрану по брелоку №38"));
+        break;
+    case 6475U:
+        lblNavtelecomEventCode->SetLabel(wxT("Снятие с охраны по брелоку №38"));
+        break;
+    case 6476U:
+        lblNavtelecomEventCode->SetLabel(wxT("Постановка на охрану по брелоку №39"));
+        break;
+    case 6477U:
+        lblNavtelecomEventCode->SetLabel(wxT("Снятие с охраны по брелоку №39"));
+        break;
+    case 6478U:
+        lblNavtelecomEventCode->SetLabel(wxT("Постановка на охрану по брелоку №40"));
+        break;
+    case 6479U:
+        lblNavtelecomEventCode->SetLabel(wxT("Снятие с охраны по брелоку №40"));
+        break;
+    case 6480U:
+        lblNavtelecomEventCode->SetLabel(wxT("Постановка на охрану по брелоку №41"));
+        break;
+    case 6481U:
+        lblNavtelecomEventCode->SetLabel(wxT("Снятие с охраны по брелоку №41"));
+        break;
+    case 6482U:
+        lblNavtelecomEventCode->SetLabel(wxT("Постановка на охрану по брелоку №42"));
+        break;
+    case 6483U:
+        lblNavtelecomEventCode->SetLabel(wxT("Снятие с охраны по брелоку №42"));
+        break;
+    case 6484U:
+        lblNavtelecomEventCode->SetLabel(wxT("Постановка на охрану по брелоку №43"));
+        break;
+    case 6485U:
+        lblNavtelecomEventCode->SetLabel(wxT("Снятие с охраны по брелоку №43"));
+        break;
+    case 6486U:
+        lblNavtelecomEventCode->SetLabel(wxT("Постановка на охрану по брелоку №44"));
+        break;
+    case 6487U:
+        lblNavtelecomEventCode->SetLabel(wxT("Снятие с охраны по брелоку №44"));
+        break;
+    case 6488U:
+        lblNavtelecomEventCode->SetLabel(wxT("Постановка на охрану по брелоку №45"));
+        break;
+    case 6489U:
+        lblNavtelecomEventCode->SetLabel(wxT("Снятие с охраны по брелоку №45"));
+        break;
+    case 6490U:
+        lblNavtelecomEventCode->SetLabel(wxT("Постановка на охрану по брелоку №46"));
+        break;
+    case 6491U:
+        lblNavtelecomEventCode->SetLabel(wxT("Снятие с охраны по брелоку №46"));
+        break;
+    case 6492U:
+        lblNavtelecomEventCode->SetLabel(wxT("Постановка на охрану по брелоку №47"));
+        break;
+    case 6493U:
+        lblNavtelecomEventCode->SetLabel(wxT("Снятие с охраны по брелоку №47"));
+        break;
+    case 6494U:
+        lblNavtelecomEventCode->SetLabel(wxT("Постановка на охрану по брелоку №48"));
+        break;
+    case 6495U:
+        lblNavtelecomEventCode->SetLabel(wxT("Снятие с охраны по брелоку №48"));
+        break;
+    case 6496U:
+        lblNavtelecomEventCode->SetLabel(wxT("Постановка на охрану по брелоку №49"));
+        break;
+    case 6497U:
+        lblNavtelecomEventCode->SetLabel(wxT("Снятие с охраны по брелоку №49"));
+        break;
+    case 6498U:
+        lblNavtelecomEventCode->SetLabel(wxT("Постановка на охрану по брелоку №50"));
+        break;
+    case 6499U:
+        lblNavtelecomEventCode->SetLabel(wxT("Снятие с охраны по брелоку №50"));
+        break;
+    case 6500U:
+        lblNavtelecomEventCode->SetLabel(wxT("Постановка на охрану по брелоку №51"));
+        break;
+    case 6501U:
+        lblNavtelecomEventCode->SetLabel(wxT("Снятие с охраны по брелоку №51"));
+        break;
+    case 6502U:
+        lblNavtelecomEventCode->SetLabel(wxT("Постановка на охрану по брелоку №52"));
+        break;
+    case 6503U:
+        lblNavtelecomEventCode->SetLabel(wxT("Снятие с охраны по брелоку №52"));
+        break;
+    case 6504U:
+        lblNavtelecomEventCode->SetLabel(wxT("Постановка на охрану по брелоку №53"));
+        break;
+    case 6505U:
+        lblNavtelecomEventCode->SetLabel(wxT("Снятие с охраны по брелоку №53"));
+        break;
+    case 6506U:
+        lblNavtelecomEventCode->SetLabel(wxT("Постановка на охрану по брелоку №54"));
+        break;
+    case 6507U:
+        lblNavtelecomEventCode->SetLabel(wxT("Снятие с охраны по брелоку №54"));
+        break;
+    case 6508U:
+        lblNavtelecomEventCode->SetLabel(wxT("Постановка на охрану по брелоку №55"));
+        break;
+    case 6509U:
+        lblNavtelecomEventCode->SetLabel(wxT("Снятие с охраны по брелоку №55"));
+        break;
+    case 6510U:
+        lblNavtelecomEventCode->SetLabel(wxT("Постановка на охрану по брелоку №56"));
+        break;
+    case 6511U:
+        lblNavtelecomEventCode->SetLabel(wxT("Снятие с охраны по брелоку №56"));
+        break;
+    case 6512U:
+        lblNavtelecomEventCode->SetLabel(wxT("Постановка на охрану по брелоку №57"));
+        break;
+    case 6513U:
+        lblNavtelecomEventCode->SetLabel(wxT("Снятие с охраны по брелоку №57"));
+        break;
+    case 6514U:
+        lblNavtelecomEventCode->SetLabel(wxT("Постановка на охрану по брелоку №58"));
+        break;
+    case 6515U:
+        lblNavtelecomEventCode->SetLabel(wxT("Снятие с охраны по брелоку №58"));
+        break;
+    case 6516U:
+        lblNavtelecomEventCode->SetLabel(wxT("Постановка на охрану по брелоку №59"));
+        break;
+    case 6517U:
+        lblNavtelecomEventCode->SetLabel(wxT("Снятие с охраны по брелоку №59"));
+        break;
+    case 6518U:
+        lblNavtelecomEventCode->SetLabel(wxT("Постановка на охрану по брелоку №60"));
+        break;
+    case 6519U:
+        lblNavtelecomEventCode->SetLabel(wxT("Снятие с охраны по брелоку №60"));
+        break;
+    case 6520U:
+        lblNavtelecomEventCode->SetLabel(wxT("Постановка на охрану по брелоку №61"));
+        break;
+    case 6521U:
+        lblNavtelecomEventCode->SetLabel(wxT("Снятие с охраны по брелоку №61"));
+        break;
+    case 6522U:
+        lblNavtelecomEventCode->SetLabel(wxT("Постановка на охрану по брелоку №62"));
+        break;
+    case 6523U:
+        lblNavtelecomEventCode->SetLabel(wxT("Снятие с охраны по брелоку №62"));
+        break;
+    case 6524U:
+        lblNavtelecomEventCode->SetLabel(wxT("Постановка на охрану по брелоку №63"));
+        break;
+    case 6525U:
+        lblNavtelecomEventCode->SetLabel(wxT("Снятие с охраны по брелоку №63"));
+        break;
+    case 6526U:
+        lblNavtelecomEventCode->SetLabel(wxT("Постановка на охрану по брелоку №64"));
+        break;
+    case 6527U:
+        lblNavtelecomEventCode->SetLabel(wxT("Снятие с охраны по брелоку №64"));
+        break;
+    case 6655U:
+        lblNavtelecomEventCode->SetLabel(wxT("Событие прикладывания ключа"));
+        break;
+    case 6656U:
+        lblNavtelecomEventCode->SetLabel(wxT("Событие отсутствия ключей на шине"));
+        break;
+    case 8192U:
+        lblNavtelecomEventCode->SetLabel(wxT("Прикладывание зарегистрированного ключа"));
+        break;
     case 8193U:
         lblNavtelecomEventCode->SetLabel(wxT("Прикладывание ключа 1"));
         break;
@@ -908,6 +1391,102 @@ void MainWindow::updateNavtelecomEventCode(void)
     case 8224U:
         lblNavtelecomEventCode->SetLabel(wxT("Прикладывание ключа 32"));
         break;
+    case 8225U:
+        lblNavtelecomEventCode->SetLabel(wxT("Прикладывание ключа 33"));
+        break;
+    case 8226U:
+        lblNavtelecomEventCode->SetLabel(wxT("Прикладывание ключа 34"));
+        break;
+    case 8227U:
+        lblNavtelecomEventCode->SetLabel(wxT("Прикладывание ключа 35"));
+        break;
+    case 8228U:
+        lblNavtelecomEventCode->SetLabel(wxT("Прикладывание ключа 36"));
+        break;
+    case 8229U:
+        lblNavtelecomEventCode->SetLabel(wxT("Прикладывание ключа 37"));
+        break;
+    case 8230U:
+        lblNavtelecomEventCode->SetLabel(wxT("Прикладывание ключа 38"));
+        break;
+    case 8231U:
+        lblNavtelecomEventCode->SetLabel(wxT("Прикладывание ключа 39"));
+        break;
+    case 8232U:
+        lblNavtelecomEventCode->SetLabel(wxT("Прикладывание ключа 40"));
+        break;
+    case 8233U:
+        lblNavtelecomEventCode->SetLabel(wxT("Прикладывание ключа 41"));
+        break;
+    case 8234U:
+        lblNavtelecomEventCode->SetLabel(wxT("Прикладывание ключа 42"));
+        break;
+    case 8235U:
+        lblNavtelecomEventCode->SetLabel(wxT("Прикладывание ключа 43"));
+        break;
+    case 8236U:
+        lblNavtelecomEventCode->SetLabel(wxT("Прикладывание ключа 44"));
+        break;
+    case 8237U:
+        lblNavtelecomEventCode->SetLabel(wxT("Прикладывание ключа 45"));
+        break;
+    case 8238U:
+        lblNavtelecomEventCode->SetLabel(wxT("Прикладывание ключа 46"));
+        break;
+    case 8239U:
+        lblNavtelecomEventCode->SetLabel(wxT("Прикладывание ключа 47"));
+        break;
+    case 8240U:
+        lblNavtelecomEventCode->SetLabel(wxT("Прикладывание ключа 48"));
+        break;
+    case 8241U:
+        lblNavtelecomEventCode->SetLabel(wxT("Прикладывание ключа 49"));
+        break;
+    case 8242U:
+        lblNavtelecomEventCode->SetLabel(wxT("Прикладывание ключа 50"));
+        break;
+    case 8243U:
+        lblNavtelecomEventCode->SetLabel(wxT("Прикладывание ключа 51"));
+        break;
+    case 8244U:
+        lblNavtelecomEventCode->SetLabel(wxT("Прикладывание ключа 52"));
+        break;
+    case 8245U:
+        lblNavtelecomEventCode->SetLabel(wxT("Прикладывание ключа 53"));
+        break;
+    case 8246U:
+        lblNavtelecomEventCode->SetLabel(wxT("Прикладывание ключа 54"));
+        break;
+    case 8247U:
+        lblNavtelecomEventCode->SetLabel(wxT("Прикладывание ключа 55"));
+        break;
+    case 8248U:
+        lblNavtelecomEventCode->SetLabel(wxT("Прикладывание ключа 56"));
+        break;
+    case 8249U:
+        lblNavtelecomEventCode->SetLabel(wxT("Прикладывание ключа 57"));
+        break;
+    case 8250U:
+        lblNavtelecomEventCode->SetLabel(wxT("Прикладывание ключа 58"));
+        break;
+    case 8251U:
+        lblNavtelecomEventCode->SetLabel(wxT("Прикладывание ключа 59"));
+        break;
+    case 8252U:
+        lblNavtelecomEventCode->SetLabel(wxT("Прикладывание ключа 60"));
+        break;
+    case 8253U:
+        lblNavtelecomEventCode->SetLabel(wxT("Прикладывание ключа 61"));
+        break;
+    case 8254U:
+        lblNavtelecomEventCode->SetLabel(wxT("Прикладывание ключа 62"));
+        break;
+    case 8255U:
+        lblNavtelecomEventCode->SetLabel(wxT("Прикладывание ключа 63"));
+        break;
+    case 8256U:
+        lblNavtelecomEventCode->SetLabel(wxT("Прикладывание ключа 64"));
+        break;
     case 8449U:
         lblNavtelecomEventCode->SetLabel(wxT("Уведомление о смене параметров"));
         break;
@@ -924,13 +1503,271 @@ void MainWindow::updateNavtelecomEventCode(void)
         lblNavtelecomEventCode->SetLabel(wxT("Уведомление об ошибке при скачивании прошивки"));
         break;
     case 8454U:
-        lblNavtelecomEventCode->SetLabel(wxT("Уведомление о том, что версия прошивки последняя"));
+        lblNavtelecomEventCode->SetLabel(wxT("Уведомление о том, что прошивка не нуждается в обновлении"));
         break;
     case 8705U:
         lblNavtelecomEventCode->SetLabel(wxT("Автопостановка на охрану"));
         break;
     case 8706U:
         lblNavtelecomEventCode->SetLabel(wxT("Автоматическая перепостановка на охрану"));
+        break;
+    case 8960U:
+        lblNavtelecomEventCode->SetLabel(wxT("Смена настроек по SMS формата №1"));
+        break;
+    case 8961U:
+        lblNavtelecomEventCode->SetLabel(wxT("Смена настроек по SMS формата №2"));
+        break;
+    case 8962U:
+        lblNavtelecomEventCode->SetLabel(wxT("Смена настроек по SMS формата №3"));
+        break;
+    case 8963U:
+        lblNavtelecomEventCode->SetLabel(wxT("Смена настроек по SMS формата №4"));
+        break;
+    case 8964U:
+        lblNavtelecomEventCode->SetLabel(wxT("Смена настроек ключей Touch Memory по SMS"));
+        break;
+    case 9216U:
+        lblNavtelecomEventCode->SetLabel(wxT("Отправка уведомления о смене настроек по SMS формата №1"));
+        break;
+    case 9217U:
+        lblNavtelecomEventCode->SetLabel(wxT("Отправка уведомления о смене настроек по SMS формата №2"));
+        break;
+    case 9218U:
+        lblNavtelecomEventCode->SetLabel(wxT("Отправка уведомления о смене настроек по SMS формата №3"));
+        break;
+    case 9219U:
+        lblNavtelecomEventCode->SetLabel(wxT("Отправка уведомления о смене настроек ключей Touch Memory по SMS"));
+        break;
+    case 9472U:
+        lblNavtelecomEventCode->SetLabel(wxT("Выход из спящего режима"));
+        break;
+    case 9473U:
+        lblNavtelecomEventCode->SetLabel(wxT("Переход в спящий режим"));
+        break;
+    case 9474U:
+        lblNavtelecomEventCode->SetLabel(wxT("Отключение устройства"));
+        break;
+    case 9485U:
+        lblNavtelecomEventCode->SetLabel(wxT("Дисплей водителя: изменение состояния водителя"));
+        break;
+    case 9486U:
+        lblNavtelecomEventCode->SetLabel(wxT("Дисплей водителя: получено сообщение для водителя"));
+        break;
+    case 9487U:
+        lblNavtelecomEventCode->SetLabel(wxT("Дисплей водителя: сообщение прочитано водителем"));
+        break;
+    case 9488U:
+        lblNavtelecomEventCode->SetLabel(wxT("Дисплей водителя: состояние водителя сменилось на \"На вызове\""));
+        break;
+    case 9489U:
+        lblNavtelecomEventCode->SetLabel(wxT("Дисплей водителя: состояние водителя сменилось на \"В рейсе\""));
+        break;
+    case 9490U:
+        lblNavtelecomEventCode->SetLabel(wxT("Дисплей водителя: состояние водителя сменилось на \"Свободен\""));
+        break;
+    case 9491U:
+        lblNavtelecomEventCode->SetLabel(wxT("Дисплей водителя: состояние водителя сменилось на \"Ожидание\""));
+        break;
+    case 9492U:
+        lblNavtelecomEventCode->SetLabel(wxT("Дисплей водителя: состояние водителя сменилось на \"Возвращение\""));
+        break;
+    case 9493U:
+        lblNavtelecomEventCode->SetLabel(wxT("Дисплей водителя: состояние водителя сменилось на \"Резерв\""));
+        break;
+    case 9494U:
+        lblNavtelecomEventCode->SetLabel(wxT("Дисплей водителя: состояние водителя сменилось на \"В работе\""));
+        break;
+    case 9495U:
+        lblNavtelecomEventCode->SetLabel(wxT("Дисплей водителя: состояние водителя сменилось на \"Перерыв\""));
+        break;
+    case 9496U:
+        lblNavtelecomEventCode->SetLabel(wxT("Дисплей водителя: состояние водителя сменилось на \"Готовность\""));
+        break;
+    case 9497U:
+        lblNavtelecomEventCode->SetLabel(wxT("Дисплей водителя: состояние водителя сменилось на \"Обед\""));
+        break;
+    case 9498U:
+        lblNavtelecomEventCode->SetLabel(wxT("Дисплей водителя: состояние водителя сменилось на \"Отдых\""));
+        break;
+    case 9499U:
+        lblNavtelecomEventCode->SetLabel(wxT("Дисплей водителя: состояние водителя сменилось на \"Ремонт\""));
+        break;
+    case 9500U:
+        lblNavtelecomEventCode->SetLabel(wxT("Дисплей водителя: состояние водителя сменилось на \"Загрузка\""));
+        break;
+    case 9501U:
+        lblNavtelecomEventCode->SetLabel(wxT("Дисплей водителя: состояние водителя сменилось на \"Разгрузка\""));
+        break;
+    case 9502U:
+        lblNavtelecomEventCode->SetLabel(wxT("Дисплей водителя: состояние водителя сменилось на \"Поломка\""));
+        break;
+    case 9503U:
+        lblNavtelecomEventCode->SetLabel(wxT("Дисплей водителя: состояние водителя сменилось на \"ДТП\""));
+        break;
+    case 9504U:
+        lblNavtelecomEventCode->SetLabel(wxT("Монитор давления в шинах: системная тревога."));
+        break;
+    case 9505U:
+        lblNavtelecomEventCode->SetLabel(wxT("Датчик давления в шинах: критическая тревога (например, разряд батареи)"));
+        break;
+    case 9506U:
+        lblNavtelecomEventCode->SetLabel(wxT("Подъём температуры шины выше первого установленного порога"));
+        break;
+    case 9507U:
+        lblNavtelecomEventCode->SetLabel(wxT("Подъём температуры шины выше второго установленного порога"));
+        break;
+    case 9508U:
+        lblNavtelecomEventCode->SetLabel(wxT("Падение давления в шине ниже первого установленного порога"));
+        break;
+    case 9509U:
+        lblNavtelecomEventCode->SetLabel(wxT("Падение давления в шине ниже второго установленного порога"));
+        break;
+    case 9510U:
+        lblNavtelecomEventCode->SetLabel(wxT("Подъём давления в шине выше установленного порога"));
+        break;
+    case 9520U:
+        lblNavtelecomEventCode->SetLabel(wxT("Тахограф: Установка/извлечение карты №1"));
+        break;
+    case 9521U:
+        lblNavtelecomEventCode->SetLabel(wxT("Тахограф: Установка/извлечение карты №2"));
+        break;
+    case 9522U:
+        lblNavtelecomEventCode->SetLabel(wxT("Тахограф: Изменение состояния карты №1"));
+        break;
+    case 9523U:
+        lblNavtelecomEventCode->SetLabel(wxT("Тахограф: Изменение состояния карты №2"));
+        break;
+    case 9524U:
+        lblNavtelecomEventCode->SetLabel(wxT("Тахограф: Изменение режима работы водителя №1"));
+        break;
+    case 9525U:
+        lblNavtelecomEventCode->SetLabel(wxT("Тахограф: Изменение режима работы водителя №2"));
+        break;
+    case 9526U:
+        lblNavtelecomEventCode->SetLabel(wxT("Тахограф: Нарушение скоростного режима движения"));
+        break;
+    case 9527U:
+        lblNavtelecomEventCode->SetLabel(wxT("Тахограф: Нарушение режима работы водителя"));
+        break;
+    case 9528U:
+        lblNavtelecomEventCode->SetLabel(wxT("Тахограф: Включение криптованного датчика скорости"));
+        break;
+    case 9529U:
+        lblNavtelecomEventCode->SetLabel(wxT("Тахограф: Отключение криптованного датчика скорости"));
+        break;
+    case 9530U:
+        lblNavtelecomEventCode->SetLabel(wxT("Тахограф: Распечатка с принтера"));
+        break;
+    case 9531U:
+        lblNavtelecomEventCode->SetLabel(wxT("Тахограф: Отключение тахографа (переход тахографа в энергосберегающий режим / прерывание обмена данными по инициативе тахографа)"));
+        break;
+    case 9532U:
+        lblNavtelecomEventCode->SetLabel(wxT("Тахограф: Ошибка при работе с тахографом (ошибка от тахографа)"));
+        break;
+    case 9552U:
+        lblNavtelecomEventCode->SetLabel(wxT("Получение данных от алкозамка"));
+        break;
+    case 9568U:
+        lblNavtelecomEventCode->SetLabel(wxT("Автокондуктор. Изменился статус камеры"));
+        break;
+    case 9569U:
+        lblNavtelecomEventCode->SetLabel(wxT("Автокондуктор. Прибор включен/перезагружен"));
+        break;
+    case 9570U:
+        lblNavtelecomEventCode->SetLabel(wxT("Автокондуктор. Прибор выключен"));
+        break;
+    case 9571U:
+        lblNavtelecomEventCode->SetLabel(wxT("Автокондуктор. Получены данные подсчета"));
+        break;
+    case 9728U:
+        lblNavtelecomEventCode->SetLabel(wxT("Обороты двигателя превысили заданную границу"));
+        break;
+    case 9729U:
+        lblNavtelecomEventCode->SetLabel(wxT("Обороты двигателя понизились ниже заданной границы"));
+        break;
+    case 9730U:
+        lblNavtelecomEventCode->SetLabel(wxT("Обороты двигателя повысились на заданное значение"));
+        break;
+    case 9731U:
+        lblNavtelecomEventCode->SetLabel(wxT("Обороты двигателя понизились на заданное значение"));
+        break;
+    case 9732U:
+        lblNavtelecomEventCode->SetLabel(wxT("Старт отсчёта для счётчика импульсов 1"));
+        break;
+    case 9733U:
+        lblNavtelecomEventCode->SetLabel(wxT("Окончание отсчёта для счётчика импульсов 1"));
+        break;
+    case 9734U:
+        lblNavtelecomEventCode->SetLabel(wxT("Промежуточное значение счётчика импульсов 1"));
+        break;
+    case 9735U:
+        lblNavtelecomEventCode->SetLabel(wxT("Старт отсчёта для счётчика импульсов 2"));
+        break;
+    case 9736U:
+        lblNavtelecomEventCode->SetLabel(wxT("Окончание отсчёта для счётчика импульсов 2"));
+        break;
+    case 9737U:
+        lblNavtelecomEventCode->SetLabel(wxT("Промежуточное значение счётчика импульсов 2"));
+        break;
+    case 9738U:
+        lblNavtelecomEventCode->SetLabel(wxT("Старт отсчёта для счётчика импульсов 3"));
+        break;
+    case 9739U:
+        lblNavtelecomEventCode->SetLabel(wxT("Окончание отсчёта для счётчика импульсов 3"));
+        break;
+    case 9740U:
+        lblNavtelecomEventCode->SetLabel(wxT("Промежуточное значение счётчика импульсов 3"));
+        break;
+    case 9741U:
+        lblNavtelecomEventCode->SetLabel(wxT("Старт отсчёта для счётчика импульсов 4"));
+        break;
+    case 9742U:
+        lblNavtelecomEventCode->SetLabel(wxT("Окончание отсчёта для счётчика импульсов 4"));
+        break;
+    case 9743U:
+        lblNavtelecomEventCode->SetLabel(wxT("Промежуточное значение счётчика импульсов 4"));
+        break;
+    case 9744U:
+        lblNavtelecomEventCode->SetLabel(wxT("Старт отсчёта для счётчика импульсов 5"));
+        break;
+    case 9745U:
+        lblNavtelecomEventCode->SetLabel(wxT("Окончание отсчёта для счётчика импульсов 5"));
+        break;
+    case 9746U:
+        lblNavtelecomEventCode->SetLabel(wxT("Промежуточное значение счётчика импульсов 5"));
+        break;
+    case 9747U:
+        lblNavtelecomEventCode->SetLabel(wxT("Старт отсчёта для счётчика импульсов 6"));
+        break;
+    case 9748U:
+        lblNavtelecomEventCode->SetLabel(wxT("Окончание отсчёта для счётчика импульсов 6"));
+        break;
+    case 9749U:
+        lblNavtelecomEventCode->SetLabel(wxT("Промежуточное значение счётчика импульсов 6"));
+        break;
+    case 9984U:
+        lblNavtelecomEventCode->SetLabel(wxT("Радиометка обнаружена"));
+        break;
+    case 9985U:
+        lblNavtelecomEventCode->SetLabel(wxT("Радиометка потеряна"));
+        break;
+    case 10496U:
+        lblNavtelecomEventCode->SetLabel(wxT("Датчик пассажиропотока: начало подсчета"));
+        break;
+    case 10497U:
+        lblNavtelecomEventCode->SetLabel(wxT("Датчик пассажиропотока: окончание подсчета"));
+        break;
+    case 10498U:
+        lblNavtelecomEventCode->SetLabel(wxT("Датчик пассажиропотока: переполнение счетчика"));
+        break;
+    case 10499U:
+        lblNavtelecomEventCode->SetLabel(wxT("Датчик пассажиропотока: ошибка"));
+        break;
+    case 13107U:
+        lblNavtelecomEventCode->SetLabel(wxT("Неподдерживаемая команда"));
+        break;
+    case 13568U:
+        lblNavtelecomEventCode->SetLabel(wxT("Запросы EGTS"));
         break;
     case 16384U:
         lblNavtelecomEventCode->SetLabel(wxT("Снятие с охраны по первому таймеру"));
@@ -948,7 +1785,7 @@ void MainWindow::updateNavtelecomEventCode(void)
         lblNavtelecomEventCode->SetLabel(wxT("Запрос модели и версии"));
         break;
     case 40961U:
-        lblNavtelecomEventCode->SetLabel(wxT("Запрос баланса л/с SIM-карты"));
+        lblNavtelecomEventCode->SetLabel(wxT("Запрос баланса SIM-карты"));
         break;
     case 40962U:
         lblNavtelecomEventCode->SetLabel(wxT("Запрос текущего состояния объекта"));
@@ -965,11 +1802,14 @@ void MainWindow::updateNavtelecomEventCode(void)
     case 40966U:
         lblNavtelecomEventCode->SetLabel(wxT("Запрос кода последнего введенного ключа Touch Memory"));
         break;
+    case 40967U:
+        lblNavtelecomEventCode->SetLabel(wxT("Запрос текущего состояния акселерометра (с получением состояния внутреннего прерывания)"));
+        break;
     case 40968U:
-        lblNavtelecomEventCode->SetLabel(wxT("Запрос режима (по voice dtmf)"));
+        lblNavtelecomEventCode->SetLabel(wxT("Запрос режима (по voice DTMF)"));
         break;
     case 40969U:
-        lblNavtelecomEventCode->SetLabel(wxT("Запрос индивидуального идентификатора устройства"));
+        lblNavtelecomEventCode->SetLabel(wxT("Запрос индивидуального идентификатора устройства (IMEI)"));
         break;
     case 40970U:
         lblNavtelecomEventCode->SetLabel(wxT("Запрос телефонов абонентов голосового оповещения"));
@@ -1002,10 +1842,16 @@ void MainWindow::updateNavtelecomEventCode(void)
         lblNavtelecomEventCode->SetLabel(wxT("Запрос количества спутников"));
         break;
     case 40980U:
-        lblNavtelecomEventCode->SetLabel(wxT("Запрос количества спутников"));
+        lblNavtelecomEventCode->SetLabel(wxT("Запрос текущего значения дисперсии напряжения в бортовой сети"));
         break;
     case 40981U:
-        lblNavtelecomEventCode->SetLabel(wxT("Запрос значений топливных датчиков"));
+        lblNavtelecomEventCode->SetLabel(wxT("Запрос значений топливных датчиков (аналоговые)"));
+        break;
+    case 40982U:
+        lblNavtelecomEventCode->SetLabel(wxT("Запрос позиции устройства (LBS)"));
+        break;
+    case 40983U:
+        lblNavtelecomEventCode->SetLabel(wxT("Запрос версии модуля ключей TM"));
         break;
     case 41008U:
         lblNavtelecomEventCode->SetLabel(wxT("Запрос прошивки с сервера GPRS"));
@@ -1016,44 +1862,104 @@ void MainWindow::updateNavtelecomEventCode(void)
     case 41010U:
         lblNavtelecomEventCode->SetLabel(wxT("Запрос на соединение с конфигуратором у службы RCS"));
         break;
-    case 41216U:
-        lblNavtelecomEventCode->SetLabel(wxT("Снятие с охраны по команде"));
+    case 41011U:
+        lblNavtelecomEventCode->SetLabel(wxT("Команда/запрос калибровки акселерометра"));
         break;
-    case 41217U:
-        lblNavtelecomEventCode->SetLabel(wxT("Постановка на охрану по команде"));
+    case 41012U:
+        lblNavtelecomEventCode->SetLabel(wxT("Запрос ревизии устройства"));
         break;
-    case 41218U:
-        lblNavtelecomEventCode->SetLabel(wxT("Постановка в дополнительный режим охраны по команде"));
+    case 41013U:
+        lblNavtelecomEventCode->SetLabel(wxT("Запрос информации о внешнем датчике наклона"));
+        break;
+    case 41014U:
+        lblNavtelecomEventCode->SetLabel(wxT("Запрос радиометки"));
+        break;
+    case 41015U:
+        lblNavtelecomEventCode->SetLabel(wxT("Асинхронный ответ на команду/запрос калибровки акселерометра"));
+        break;
+    case 41016U:
+        lblNavtelecomEventCode->SetLabel(wxT("Команда/запрос модулю фиксации ДТП (снятие защиты с файла)"));
+        break;
+    case 41017U:
+        lblNavtelecomEventCode->SetLabel(wxT("Событие фиксации ДТП: лёгкое ДТП"));
+        break;
+    case 41018U:
+        lblNavtelecomEventCode->SetLabel(wxT("Событие фиксации ДТП: тяжёлое ДТП"));
+        break;
+    case 41019U:
+        lblNavtelecomEventCode->SetLabel(wxT("Событие завершения формирования файла с профилем ДТП"));
+        break;
+    case 41023U:
+        lblNavtelecomEventCode->SetLabel(wxT("Получение данных от холодильной установки"));
+        break;
+    case 41024U:
+        lblNavtelecomEventCode->SetLabel(wxT("Запрос данных цифровой камеры"));
+        break;
+    case 41025U:
+        lblNavtelecomEventCode->SetLabel(wxT("Запрос данных тахографа"));
+        break;
+    case 41026U:
+        lblNavtelecomEventCode->SetLabel(wxT("Команда файловой системе SD-карты"));
+        break;
+    case 41027U:
+        lblNavtelecomEventCode->SetLabel(wxT("Команда хранилищу flash-памяти"));
+        break;
+    case 41028U:
+        lblNavtelecomEventCode->SetLabel(wxT("Команда зуммеру"));
+        break;
+    case 41029U:
+        lblNavtelecomEventCode->SetLabel(wxT("Запрос версии прошивки модема"));
+        break;
+    case 41030U:
+        lblNavtelecomEventCode->SetLabel(wxT("Весовой индикатор: вес стабилен"));
+        break;
+    case 41031U:
+        lblNavtelecomEventCode->SetLabel(wxT("MODBUS: запрос ОК"));
+        break;
+    case 41033U:
+        lblNavtelecomEventCode->SetLabel(wxT("Запрос статуса устройства"));
+        break;
+    case 41034U:
+        lblNavtelecomEventCode->SetLabel(wxT("Запрос ICCID"));
+        break;
+    case 41041U:
+        lblNavtelecomEventCode->SetLabel(wxT("Запрос текущего режима охраны"));
+        break;
+    case 41056U:
+        lblNavtelecomEventCode->SetLabel(wxT("Изменились пользовательские параметры MODBUS"));
         break;
     case 41232U:
-        lblNavtelecomEventCode->SetLabel(wxT("Включение О1"));
+        lblNavtelecomEventCode->SetLabel(wxT("Включение выхода О1"));
         break;
     case 41234U:
-        lblNavtelecomEventCode->SetLabel(wxT("Выключение О1"));
+        lblNavtelecomEventCode->SetLabel(wxT("Выключение выхода О1"));
         break;
     case 41248U:
-        lblNavtelecomEventCode->SetLabel(wxT("Включение О2"));
+        lblNavtelecomEventCode->SetLabel(wxT("Включение выхода О2"));
         break;
     case 41250U:
-        lblNavtelecomEventCode->SetLabel(wxT("Выключение О2"));
+        lblNavtelecomEventCode->SetLabel(wxT("Выключение выхода О2"));
         break;
     case 41264U:
-        lblNavtelecomEventCode->SetLabel(wxT("Включение О3"));
+        lblNavtelecomEventCode->SetLabel(wxT("Включение выхода О3"));
         break;
     case 41266U:
-        lblNavtelecomEventCode->SetLabel(wxT("Выключение О3"));
+        lblNavtelecomEventCode->SetLabel(wxT("Выключение выхода О3"));
         break;
     case 41280U:
-        lblNavtelecomEventCode->SetLabel(wxT("Включение О4"));
+        lblNavtelecomEventCode->SetLabel(wxT("Включение выхода О4"));
         break;
     case 41282U:
-        lblNavtelecomEventCode->SetLabel(wxT("Выключение О4"));
+        lblNavtelecomEventCode->SetLabel(wxT("Выключение выхода О4"));
         break;
     case 41472U:
         lblNavtelecomEventCode->SetLabel(wxT("Команда на микрофонное прослушивание"));
         break;
     case 41473U:
         lblNavtelecomEventCode->SetLabel(wxT("Команда на подключение к GPRS-Интернет"));
+        break;
+    case 41474U:
+        lblNavtelecomEventCode->SetLabel(wxT("Команда на переход в тестовый режим"));
         break;
     case 41475U:
         lblNavtelecomEventCode->SetLabel(wxT("Команда на запись страницы DF"));
@@ -1062,25 +1968,22 @@ void MainWindow::updateNavtelecomEventCode(void)
         lblNavtelecomEventCode->SetLabel(wxT("Команда на чтение страницы DF"));
         break;
     case 41477U:
-        lblNavtelecomEventCode->SetLabel(wxT("Команда записи программы с последующей немедленной перезагрузкой"));
+        lblNavtelecomEventCode->SetLabel(wxT("Команда записи программы с последующей перезагрузкой"));
         break;
     case 41478U:
         lblNavtelecomEventCode->SetLabel(wxT("Команда записи настроек с последующей перезагрузкой"));
-        break;
-    case 41474U:
-        lblNavtelecomEventCode->SetLabel(wxT("Команда на переход в тестовый режим"));
         break;
     case 41479U:
         lblNavtelecomEventCode->SetLabel(wxT("Команда на выход из режима прослушивания"));
         break;
     case 41480U:
-        lblNavtelecomEventCode->SetLabel(wxT("Команда на разрешение входящего CSD"));
+        lblNavtelecomEventCode->SetLabel(wxT("Команда записи программы с последующей перезагрузкой (RFU)"));
         break;
     case 41481U:
         lblNavtelecomEventCode->SetLabel(wxT("Команда на разрешение входящего VD при подключенном GPRS"));
         break;
     case 41482U:
-        lblNavtelecomEventCode->SetLabel(wxT("Команда сброса устройства и последующей"));
+        lblNavtelecomEventCode->SetLabel(wxT("Команда сброса устройства и последующей перезагрузки"));
         break;
     case 41483U:
         lblNavtelecomEventCode->SetLabel(wxT("Команда коннекта к серверу для смены прошивки"));
@@ -1094,14 +1997,62 @@ void MainWindow::updateNavtelecomEventCode(void)
     case 41486U:
         lblNavtelecomEventCode->SetLabel(wxT("Команда сброса настроек"));
         break;
-    case 41487U:
-        lblNavtelecomEventCode->SetLabel(wxT("Команда очистки черного ящика"));
-        break;
     case 41488U:
-        lblNavtelecomEventCode->SetLabel(wxT("Команда передачи данных от сервера в USB"));
+        lblNavtelecomEventCode->SetLabel(wxT("Передача данных в прозрачном режиме"));
         break;
     case 41489U:
-        lblNavtelecomEventCode->SetLabel(wxT("Команда передачи данных из USB на сервер"));
+        lblNavtelecomEventCode->SetLabel(wxT("Подтверждение передачи данных в прозрачном режиме"));
+        break;
+    case 41490U:
+        lblNavtelecomEventCode->SetLabel(wxT("Команда установки пробега"));
+        break;
+    case 41491U:
+        lblNavtelecomEventCode->SetLabel(wxT("Команда установки программы CAN-LOG"));
+        break;
+    case 41492U:
+        lblNavtelecomEventCode->SetLabel(wxT("Команда настройки внутреннего прерывания акселерометра (данное прерывание используется для вывода устройства из режима энергосбережения)"));
+        break;
+    case 41495U:
+        lblNavtelecomEventCode->SetLabel(wxT("Команда настройки отладочного режима"));
+        break;
+    case 41496U:
+        lblNavtelecomEventCode->SetLabel(wxT("Команда автоинформатору"));
+        break;
+    case 41497U:
+        lblNavtelecomEventCode->SetLabel(wxT("Команда цифровой камере"));
+        break;
+    case 41498U:
+        lblNavtelecomEventCode->SetLabel(wxT("Команда тахографу"));
+        break;
+    case 41499U:
+        lblNavtelecomEventCode->SetLabel(wxT("Отправка тестового email"));
+        break;
+    case 41501U:
+        lblNavtelecomEventCode->SetLabel(wxT("Команда повторной отправки телеметрии (включая ч/я на SD)"));
+        break;
+    case 41504U:
+        lblNavtelecomEventCode->SetLabel(wxT("Запись страницы бинарного файла ключей TM"));
+        break;
+    case 41505U:
+        lblNavtelecomEventCode->SetLabel(wxT("Чтение страницы бинарного файла ключей TM"));
+        break;
+    case 41506U:
+        lblNavtelecomEventCode->SetLabel(wxT("Обновление бинарного файла ключей TM"));
+        break;
+    case 41507U:
+        lblNavtelecomEventCode->SetLabel(wxT("Обновление файла декодирования CAN"));
+        break;
+    case 41511U:
+        lblNavtelecomEventCode->SetLabel(wxT("Команда на корректировку времени"));
+        break;
+    case 41512U:
+        lblNavtelecomEventCode->SetLabel(wxT("Команда/запрос работы с приоритетом SIM-карты"));
+        break;
+    case 41513U:
+        lblNavtelecomEventCode->SetLabel(wxT("Произвольные команды RS"));
+        break;
+    case 41517U:
+        lblNavtelecomEventCode->SetLabel(wxT("Автокондуктор. Команда для \"Автокондуктора\""));
         break;
     case 41729U:
         lblNavtelecomEventCode->SetLabel(wxT("Подтверждение приема телеметрии"));
@@ -1115,17 +2066,44 @@ void MainWindow::updateNavtelecomEventCode(void)
     case 41732U:
         lblNavtelecomEventCode->SetLabel(wxT("Ответ на сообщение FLEX"));
         break;
+    case 41733U:
+        lblNavtelecomEventCode->SetLabel(wxT("Ответ на команду файловой системе SD-карты"));
+        break;
+    case 41734U:
+        lblNavtelecomEventCode->SetLabel(wxT("Ответ на команду автоинформатору"));
+        break;
+    case 41735U:
+        lblNavtelecomEventCode->SetLabel(wxT("Оповещение автоинформатора"));
+        break;
+    case 41736U:
+        lblNavtelecomEventCode->SetLabel(wxT("Ответ на команду цифровой камере"));
+        break;
+    case 41737U:
+        lblNavtelecomEventCode->SetLabel(wxT("Оповещение цифровой камеры"));
+        break;
+    case 41738U:
+        lblNavtelecomEventCode->SetLabel(wxT("Ответ на команду тахографу"));
+        break;
+    case 41744U:
+        lblNavtelecomEventCode->SetLabel(wxT("Передача данных в прозрачном режиме"));
+        break;
+    case 41745U:
+        lblNavtelecomEventCode->SetLabel(wxT("Отправка ответа отправителю данных в прозрачном режиме"));
+        break;
     case 41984U:
         lblNavtelecomEventCode->SetLabel(wxT("Снятие с охраны по команде"));
         break;
     case 41985U:
-        lblNavtelecomEventCode->SetLabel(wxT("Постановка на охрану по команде по профилю №1"));
+        lblNavtelecomEventCode->SetLabel(wxT("Постановка на охрану по профилю №1 по команде"));
         break;
     case 41986U:
-        lblNavtelecomEventCode->SetLabel(wxT("Постановка на охрану по команде по профилю №2"));
+        lblNavtelecomEventCode->SetLabel(wxT("Постановка на охрану по профилю №2 по команде"));
         break;
     case 41987U:
-        lblNavtelecomEventCode->SetLabel(wxT("Постановка на охрану по команде по профилю №3"));
+        lblNavtelecomEventCode->SetLabel(wxT("Постановка на охрану по профилю №3 по команде"));
+        break;
+    case 42000U:
+        lblNavtelecomEventCode->SetLabel(wxT("Отказ постановки на охрану по команде"));
         break;
     case 42241U:
         lblNavtelecomEventCode->SetLabel(wxT("Команда на задание уставки температуры для первого датчика"));
@@ -1170,52 +2148,58 @@ void MainWindow::updateNavtelecomEventCode(void)
         lblNavtelecomEventCode->SetLabel(wxT("Команда на разблокирование контура управления T4"));
         break;
     case 45057U:
-        lblNavtelecomEventCode->SetLabel(wxT("Блокирование датчика №1 по команде"));
+        lblNavtelecomEventCode->SetLabel(wxT("Блокирование входа №1 по команде"));
         break;
     case 45058U:
-        lblNavtelecomEventCode->SetLabel(wxT("Блокирование датчика №2 по команде"));
+        lblNavtelecomEventCode->SetLabel(wxT("Блокирование входа №2 по команде"));
         break;
     case 45059U:
-        lblNavtelecomEventCode->SetLabel(wxT("Блокирование датчика №3 по команде"));
+        lblNavtelecomEventCode->SetLabel(wxT("Блокирование входа №3 по команде"));
         break;
     case 45060U:
-        lblNavtelecomEventCode->SetLabel(wxT("Блокирование датчика №4 по команде"));
+        lblNavtelecomEventCode->SetLabel(wxT("Блокирование входа №4 по команде"));
         break;
     case 45061U:
-        lblNavtelecomEventCode->SetLabel(wxT("Блокирование датчика №5 по команде"));
+        lblNavtelecomEventCode->SetLabel(wxT("Блокирование входа №5 по команде"));
         break;
     case 45062U:
-        lblNavtelecomEventCode->SetLabel(wxT("Блокирование датчика №6 по команде"));
+        lblNavtelecomEventCode->SetLabel(wxT("Блокирование входа №6 по команде"));
         break;
     case 45063U:
-        lblNavtelecomEventCode->SetLabel(wxT("Блокирование датчика №7 по команде"));
+        lblNavtelecomEventCode->SetLabel(wxT("Блокирование входа №7 по команде"));
         break;
     case 45064U:
-        lblNavtelecomEventCode->SetLabel(wxT("Блокирование датчика №8 по команде"));
+        lblNavtelecomEventCode->SetLabel(wxT("Блокирование входа №8 по команде"));
+        break;
+    case 45065U:
+        lblNavtelecomEventCode->SetLabel(wxT("Блокирование датчика №9 по команде (акселерометр)"));
         break;
     case 45073U:
-        lblNavtelecomEventCode->SetLabel(wxT("Разблокирование датчика №1 по команде"));
+        lblNavtelecomEventCode->SetLabel(wxT("Разблокирование входа №1 по команде"));
         break;
     case 45074U:
-        lblNavtelecomEventCode->SetLabel(wxT("Разблокирование датчика №2 по команде"));
+        lblNavtelecomEventCode->SetLabel(wxT("Разблокирование входа №2 по команде"));
         break;
     case 45075U:
-        lblNavtelecomEventCode->SetLabel(wxT("Разблокирование датчика №3 по команде"));
+        lblNavtelecomEventCode->SetLabel(wxT("Разблокирование входа №3 по команде"));
         break;
     case 45076U:
-        lblNavtelecomEventCode->SetLabel(wxT("Разблокирование датчика №4 по команде"));
+        lblNavtelecomEventCode->SetLabel(wxT("Разблокирование входа №4 по команде"));
         break;
     case 45077U:
-        lblNavtelecomEventCode->SetLabel(wxT("Разблокирование датчика №5 по команде"));
+        lblNavtelecomEventCode->SetLabel(wxT("Разблокирование входа №5 по команде"));
         break;
     case 45078U:
-        lblNavtelecomEventCode->SetLabel(wxT("Разблокирование датчика №6 по команде"));
+        lblNavtelecomEventCode->SetLabel(wxT("Разблокирование входа №6 по команде"));
         break;
     case 45079U:
-        lblNavtelecomEventCode->SetLabel(wxT("Разблокирование датчика №7 по команде"));
+        lblNavtelecomEventCode->SetLabel(wxT("Разблокирование входа №7 по команде"));
         break;
     case 45080U:
-        lblNavtelecomEventCode->SetLabel(wxT("Разблокирование датчика №8 по команде"));
+        lblNavtelecomEventCode->SetLabel(wxT("Разблокирование входа №8 по команде"));
+        break;
+    case 45081U:
+        lblNavtelecomEventCode->SetLabel(wxT("Разблокирование датчика №9 по команде (акселерометр)"));
         break;
     case 45088U:
         lblNavtelecomEventCode->SetLabel(wxT("Блокирование всех абонентов стандартных SMS по команде"));
@@ -1296,13 +2280,13 @@ void MainWindow::updateNavtelecomEventCode(void)
         lblNavtelecomEventCode->SetLabel(wxT("Блокирование абонента №5 голосового оповещения по команде"));
         break;
     case 45168U:
-        lblNavtelecomEventCode->SetLabel(wxT("Разблокирование всех абонентов голосового оповещения покоманде"));
+        lblNavtelecomEventCode->SetLabel(wxT("Разблокирование всех абонентов голосового оповещения по команде"));
         break;
     case 45169U:
-        lblNavtelecomEventCode->SetLabel(wxT("Разблокирование абонента №1 голосового оповещения покоманде"));
+        lblNavtelecomEventCode->SetLabel(wxT("Разблокирование абонента №1 голосового оповещения по команде"));
         break;
     case 45170U:
-        lblNavtelecomEventCode->SetLabel(wxT("Разблокирование абонента №2 голосового оповещения покоманде"));
+        lblNavtelecomEventCode->SetLabel(wxT("Разблокирование абонента №2 голосового оповещения по команде"));
         break;
     case 45171U:
         lblNavtelecomEventCode->SetLabel(wxT("Разблокирование абонента №3 голосового оповещения по команде"));
@@ -1313,6 +2297,12 @@ void MainWindow::updateNavtelecomEventCode(void)
     case 45173U:
         lblNavtelecomEventCode->SetLabel(wxT("Разблокирование абонента №5 голосового оповещения по команде"));
         break;
+    case 45184U:
+        lblNavtelecomEventCode->SetLabel(wxT("Набор последнего номера с гарнитуры Bluetooth"));
+        break;
+    case 45185U:
+        lblNavtelecomEventCode->SetLabel(wxT("Команда модулю Bluetooth"));
+        break;
     case 49152U:
         lblNavtelecomEventCode->SetLabel(wxT("Команда отмены дальнейшего голосового оповещения"));
         break;
@@ -1322,26 +2312,8 @@ void MainWindow::updateNavtelecomEventCode(void)
     case 49409U:
         lblNavtelecomEventCode->SetLabel(wxT("Неправильный пароль"));
         break;
-    case 8961U:
-        lblNavtelecomEventCode->SetLabel(wxT("Смена настроек по SMS формата №1"));
-        break;
-    case 9217U:
-        lblNavtelecomEventCode->SetLabel(wxT("Отправка уведомления о смене настроек по SMS формата №1"));
-        break;
-    case 8962U:
-        lblNavtelecomEventCode->SetLabel(wxT("Смена настроек по SMS формата №1"));
-        break;
-    case 9218U:
-        lblNavtelecomEventCode->SetLabel(wxT("Отправка уведомления о смене настроек по SMS формата №1"));
-        break;
-    case 8963U:
-        lblNavtelecomEventCode->SetLabel(wxT("Смена настроек по SMS формата №1"));
-        break;
-    case 9219U:
-        lblNavtelecomEventCode->SetLabel(wxT("Отправка уведомления о смене настроек по SMS формата №1"));
-        break;
     case 65280U:
-        lblNavtelecomEventCode->SetLabel(wxT("Текущее состояние системы"));
+        lblNavtelecomEventCode->SetLabel(wxT("Передача текущего состояния системы (пинг)"));
         break;
     default:
         lblNavtelecomEventCode->SetLabel(wxT("-"));
