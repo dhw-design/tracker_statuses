@@ -31,6 +31,7 @@ enum {
     spinNavisetId,
     spinArnaviGsmId,
     spinArnaviNavId,
+    spinNavtelecomModulesSt2Id,
 };
 
 typedef struct _naviset_st {
@@ -53,6 +54,16 @@ typedef struct _navtelecom_st {
     unsigned char generator : 1;
 } navtelecom_st_t;
 
+typedef struct _navtelecom_modules_st2 {
+    unsigned char gsmJamming : 2;
+    unsigned char gpsJamming : 1;
+    unsigned char btStatus : 1;
+    unsigned char btConfig : 1;
+    unsigned char pwrSave : 1;
+    unsigned char posAvg : 1;
+    unsigned char evacuation : 1;
+} navtelecom_modules_st2_t;
+
 
 MainWindow::MainWindow(wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style):
     wxFrame(parent, id, title, pos, size, /*wxDEFAULT_FRAME_STYLE*/ wxSYSTEM_MENU | wxRESIZE_BORDER | wxMINIMIZE_BOX | wxCLOSE_BOX | wxCAPTION | wxCLIP_CHILDREN)
@@ -63,17 +74,29 @@ MainWindow::MainWindow(wxWindow* parent, wxWindowID id, const wxString& title, c
     tabTrackers_Arnavi = new wxPanel(tabTrackers, wxID_ANY);
     tabNaviset = new wxPanel(tabTrackers, wxID_ANY);
     tabNavtelecom = new wxPanel(tabTrackers, wxID_ANY);
-    spinNavtelecomStatus = new wxSpinCtrl(tabNavtelecom, spinNavtelecomId, wxT("0"), wxDefaultPosition, wxDefaultSize, wxSP_ARROW_KEYS, 0, 255);
-    lblNavtelecomGsm = new wxStaticText(tabNavtelecom, wxID_ANY, wxEmptyString);
-    lblNavtelecomUsb = new wxStaticText(tabNavtelecom, wxID_ANY, wxEmptyString);
-    lblNavtelecomHiResGps = new wxStaticText(tabNavtelecom, wxID_ANY, wxEmptyString);
-    lblNavtelecomTimeSync = new wxStaticText(tabNavtelecom, wxID_ANY, wxEmptyString);
-    lblNavtelecomSim = new wxStaticText(tabNavtelecom, wxID_ANY, wxEmptyString);
-    lblNavtelecomGsmReg = new wxStaticText(tabNavtelecom, wxID_ANY, wxEmptyString);
-    lblNavtelecomRouming = new wxStaticText(tabNavtelecom, wxID_ANY, wxEmptyString);
-    lblNavtelecomGenerator = new wxStaticText(tabNavtelecom, wxID_ANY, wxEmptyString);
-    spinNavtelecomEventCode = new wxSpinCtrl(tabNavtelecom, spinNavtelecomEventCodeId, wxT("0"), wxDefaultPosition, wxDefaultSize, wxSP_ARROW_KEYS, 0, 65535);
-    lblNavtelecomEventCode = new wxStaticText(tabNavtelecom, wxID_ANY, wxEmptyString);
+    tabNavtelecomParams = new wxNotebook(tabNavtelecom, wxID_ANY);
+    tabNavtelecomParams_event_code = new wxPanel(tabNavtelecomParams, wxID_ANY);
+    tabNavtelecomParams_modules_st2 = new wxPanel(tabNavtelecomParams, wxID_ANY);
+    tabNavtelecomParams_modules_st = new wxPanel(tabNavtelecomParams, wxID_ANY);
+    spinNavtelecomStatus = new wxSpinCtrl(tabNavtelecomParams_modules_st, spinNavtelecomId, wxT("0"), wxDefaultPosition, wxDefaultSize, wxSP_ARROW_KEYS, 0, 255);
+    lblNavtelecomGsm = new wxStaticText(tabNavtelecomParams_modules_st, wxID_ANY, wxEmptyString);
+    lblNavtelecomUsb = new wxStaticText(tabNavtelecomParams_modules_st, wxID_ANY, wxEmptyString);
+    lblNavtelecomHiResGps = new wxStaticText(tabNavtelecomParams_modules_st, wxID_ANY, wxEmptyString);
+    lblNavtelecomTimeSync = new wxStaticText(tabNavtelecomParams_modules_st, wxID_ANY, wxEmptyString);
+    lblNavtelecomSim = new wxStaticText(tabNavtelecomParams_modules_st, wxID_ANY, wxEmptyString);
+    lblNavtelecomGsmReg = new wxStaticText(tabNavtelecomParams_modules_st, wxID_ANY, wxEmptyString);
+    lblNavtelecomRouming = new wxStaticText(tabNavtelecomParams_modules_st, wxID_ANY, wxEmptyString);
+    lblNavtelecomGenerator = new wxStaticText(tabNavtelecomParams_modules_st, wxID_ANY, wxEmptyString);
+    spinNavtelecomModulesSt2 = new wxSpinCtrl(tabNavtelecomParams_modules_st2, spinNavtelecomModulesSt2Id, wxT("0"), wxDefaultPosition, wxDefaultSize, wxSP_ARROW_KEYS, 0, 255);
+    lblNavtelecomGsmJamming = new wxStaticText(tabNavtelecomParams_modules_st2, wxID_ANY, wxEmptyString);
+    lblNavtelecomGpsJamming = new wxStaticText(tabNavtelecomParams_modules_st2, wxID_ANY, wxEmptyString);
+    lblNavtelecomBluetoothStatus = new wxStaticText(tabNavtelecomParams_modules_st2, wxID_ANY, wxEmptyString);
+    lblNavtelecomBluetoothConfig = new wxStaticText(tabNavtelecomParams_modules_st2, wxID_ANY, wxEmptyString);
+    lblNavtelecomPowerSave = new wxStaticText(tabNavtelecomParams_modules_st2, wxID_ANY, wxEmptyString);
+    lblNavtelecomPosAveraging = new wxStaticText(tabNavtelecomParams_modules_st2, wxID_ANY, wxEmptyString);
+    lblNavtelecomEvacuation = new wxStaticText(tabNavtelecomParams_modules_st2, wxID_ANY, wxEmptyString);
+    spinNavtelecomEventCode = new wxSpinCtrl(tabNavtelecomParams_event_code, spinNavtelecomEventCodeId, wxT("0"), wxDefaultPosition, wxDefaultSize, wxSP_ARROW_KEYS, 0, 65535);
+    lblNavtelecomEventCode = new wxStaticText(tabNavtelecomParams_event_code, wxID_ANY, wxEmptyString);
     spinNavisetStatus = new wxSpinCtrl(tabNaviset, spinNavisetId, wxT("0"), wxDefaultPosition, wxDefaultSize, wxSP_ARROW_KEYS, 0, 255);
     lblNavisetPwrExt = new wxStaticText(tabNaviset, wxID_ANY, wxEmptyString);
     lblNavisetMove = new wxStaticText(tabNaviset, wxID_ANY, wxEmptyString);
@@ -93,6 +116,7 @@ MainWindow::MainWindow(wxWindow* parent, wxWindowID id, const wxString& title, c
     // end wxGlade
     updateNavisetStatus();
     updateNavtelecomStatus();
+    updateNavtelecomModulesStatus2();
     updateNavtelecomEventCode();
     updateArnaviStatus();
 }
@@ -103,6 +127,7 @@ void MainWindow::set_properties()
     // begin wxGlade: MainWindow::set_properties
     SetTitle(wxT("Статусы трекеров"));
     spinNavtelecomStatus->SetToolTip(wxT("Значение параметра для расшифровки (в системе Wialon параметр modules_st)"));
+    spinNavtelecomModulesSt2->SetToolTip(wxT("Значение параметра для расшифровки (в системе Wialon параметр modules_st2)\n"));
     spinNavtelecomEventCode->SetToolTip(wxT("Значение параметра для расшифровки (в системе Wialon параметр event_code)"));
     lblNavtelecomEventCode->Wrap(260);
     spinNavisetStatus->SetToolTip(wxT("Значение параметра для расшифровки (в системе Wialon параметр status)\n"));
@@ -129,28 +154,52 @@ void MainWindow::do_layout()
     wxBoxSizer* sizer_4 = new wxBoxSizer(wxVERTICAL);
     wxBoxSizer* sizer_5 = new wxBoxSizer(wxHORIZONTAL);
     wxBoxSizer* sizer_2 = new wxBoxSizer(wxVERTICAL);
+    wxBoxSizer* sizer_15 = new wxBoxSizer(wxVERTICAL);
     wxBoxSizer* sizer_13 = new wxBoxSizer(wxHORIZONTAL);
+    wxBoxSizer* sizer_16 = new wxBoxSizer(wxVERTICAL);
+    wxBoxSizer* sizer_17 = new wxBoxSizer(wxHORIZONTAL);
+    wxBoxSizer* sizer_14 = new wxBoxSizer(wxVERTICAL);
     wxBoxSizer* sizer_3 = new wxBoxSizer(wxHORIZONTAL);
-    wxStaticText* label_1 = new wxStaticText(tabNavtelecom, wxID_ANY, wxT("modules_st"));
+    wxStaticText* label_1 = new wxStaticText(tabNavtelecomParams_modules_st, wxID_ANY, wxT("modules_st"));
     label_1->SetMinSize(wxSize(70, 16));
     sizer_3->Add(label_1, 0, 0, 0);
     sizer_3->Add(spinNavtelecomStatus, 1, 0, 0);
-    sizer_2->Add(sizer_3, 1, wxEXPAND, 0);
-    sizer_2->Add(lblNavtelecomGsm, 0, wxEXPAND, 0);
-    sizer_2->Add(lblNavtelecomUsb, 0, wxEXPAND, 0);
-    sizer_2->Add(lblNavtelecomHiResGps, 0, wxEXPAND, 0);
-    sizer_2->Add(lblNavtelecomTimeSync, 0, wxEXPAND, 0);
-    sizer_2->Add(lblNavtelecomSim, 0, wxEXPAND, 0);
-    sizer_2->Add(lblNavtelecomGsmReg, 0, wxEXPAND, 0);
-    sizer_2->Add(lblNavtelecomRouming, 0, wxEXPAND, 0);
-    sizer_2->Add(lblNavtelecomGenerator, 0, wxEXPAND, 0);
-    sizer_2->Add(20, 10, 0, 0, 0);
-    wxStaticText* label_9 = new wxStaticText(tabNavtelecom, wxID_ANY, wxT("event_code"));
+    sizer_14->Add(sizer_3, 1, wxEXPAND, 0);
+    sizer_14->Add(lblNavtelecomGsm, 0, wxEXPAND, 0);
+    sizer_14->Add(lblNavtelecomUsb, 0, wxEXPAND, 0);
+    sizer_14->Add(lblNavtelecomHiResGps, 0, wxEXPAND, 0);
+    sizer_14->Add(lblNavtelecomTimeSync, 0, wxEXPAND, 0);
+    sizer_14->Add(lblNavtelecomSim, 0, wxEXPAND, 0);
+    sizer_14->Add(lblNavtelecomGsmReg, 0, wxEXPAND, 0);
+    sizer_14->Add(lblNavtelecomRouming, 0, wxEXPAND, 0);
+    sizer_14->Add(lblNavtelecomGenerator, 0, wxEXPAND, 0);
+    sizer_14->Add(20, 10, 14, 0, 0);
+    tabNavtelecomParams_modules_st->SetSizer(sizer_14);
+    wxStaticText* label_10 = new wxStaticText(tabNavtelecomParams_modules_st2, wxID_ANY, wxT("modules_st2"));
+    label_10->SetMinSize(wxSize(70, 16));
+    sizer_17->Add(label_10, 0, 0, 0);
+    sizer_17->Add(spinNavtelecomModulesSt2, 1, 0, 0);
+    sizer_16->Add(sizer_17, 1, wxEXPAND, 0);
+    sizer_16->Add(lblNavtelecomGsmJamming, 0, 0, 0);
+    sizer_16->Add(lblNavtelecomGpsJamming, 0, 0, 0);
+    sizer_16->Add(lblNavtelecomBluetoothStatus, 0, 0, 0);
+    sizer_16->Add(lblNavtelecomBluetoothConfig, 0, 0, 0);
+    sizer_16->Add(lblNavtelecomPowerSave, 0, 0, 0);
+    sizer_16->Add(lblNavtelecomPosAveraging, 0, 0, 0);
+    sizer_16->Add(lblNavtelecomEvacuation, 0, 0, 0);
+    sizer_16->Add(20, 20, 15, 0, 0);
+    tabNavtelecomParams_modules_st2->SetSizer(sizer_16);
+    wxStaticText* label_9 = new wxStaticText(tabNavtelecomParams_event_code, wxID_ANY, wxT("event_code"));
     label_9->SetMinSize(wxSize(70, 16));
     sizer_13->Add(label_9, 0, 0, 0);
     sizer_13->Add(spinNavtelecomEventCode, 1, 0, 0);
-    sizer_2->Add(sizer_13, 1, wxEXPAND, 0);
-    sizer_2->Add(lblNavtelecomEventCode, 10, wxEXPAND, 0);
+    sizer_15->Add(sizer_13, 1, wxEXPAND, 0);
+    sizer_15->Add(lblNavtelecomEventCode, 10, wxEXPAND, 0);
+    tabNavtelecomParams_event_code->SetSizer(sizer_15);
+    tabNavtelecomParams->AddPage(tabNavtelecomParams_modules_st, wxT("modules_st"));
+    tabNavtelecomParams->AddPage(tabNavtelecomParams_modules_st2, wxT("modules_st2"));
+    tabNavtelecomParams->AddPage(tabNavtelecomParams_event_code, wxT("event_code"));
+    sizer_2->Add(tabNavtelecomParams, 1, wxEXPAND, 0);
     tabNavtelecom->SetSizer(sizer_2);
     wxStaticText* label_2 = new wxStaticText(tabNaviset, wxID_ANY, wxT("status"));
     label_2->SetMinSize(wxSize(70, 16));
@@ -310,6 +359,54 @@ void MainWindow::updateNavtelecomStatus(void)
     lblNavtelecomGenerator->SetLabel(status_bits->generator == 0 ?
         wxT("Двигатель (генератор) выключен") :
         wxT("Двигатель (генератор) запущен"));
+}
+
+void MainWindow::updateNavtelecomModulesStatus2(void)
+{
+    uint8_t code = static_cast<uint8_t>(spinNavtelecomModulesSt2->GetValue() & 0xff);
+    navtelecom_modules_st2_t *status_bits = reinterpret_cast<navtelecom_modules_st2_t*>(&code);
+    
+    switch (status_bits->gsmJamming)
+    {
+    case 0:
+        lblNavtelecomGsmJamming->SetLabel(wxT("Нет глушения GSM"));
+        break;
+    case 1:
+        lblNavtelecomGsmJamming->SetLabel(wxT("Обнаружено глушение GSM"));
+        break;
+    case 2:
+        lblNavtelecomGsmJamming->SetLabel(wxT("Обнаружены промышленные помехи"));
+        break;
+    default:
+        lblNavtelecomGsmJamming->SetLabel(wxT("-"));
+        break;
+    }
+
+    lblNavtelecomGpsJamming->SetLabel(status_bits->gpsJamming == 0 ?
+        wxT("Нет глушения GPS") :
+        wxT("Обнаружено глушение GPS"));
+
+    lblNavtelecomBluetoothStatus->SetLabel(status_bits->btStatus == 0 ?
+        wxT("Bluetooth выключен") :
+        wxT("Bluetooth включен"));
+
+    lblNavtelecomBluetoothConfig->SetLabel(status_bits->btConfig == 0 ?
+        wxT("Конфигуратор по Bluetooth не подключен") :
+        wxT("Конфигуратор по Bluetooth подключен"));
+
+    lblNavtelecomPowerSave->SetLabel(status_bits->pwrSave == 0 ?
+        wxT("Штатный режим работы") :
+        wxT("Энергосбережение"));
+
+    lblNavtelecomPosAveraging->SetLabel(status_bits->posAvg == 0 ?
+        wxT("Координаты не усредняются") :
+        wxT("Координаты усредняются"));
+
+    lblNavtelecomEvacuation->SetLabel(status_bits->evacuation == 0 ?
+        wxT("Эвакуация не зафиксирована") :
+        wxT("Эвакуация зафиксирована"));
+
+
 }
 
 void MainWindow::updateNavtelecomEventCode(void)
@@ -2387,6 +2484,8 @@ BEGIN_EVENT_TABLE(MainWindow, wxFrame)
     // begin wxGlade: MainWindow::event_table
     EVT_SPINCTRL(spinNavtelecomId, MainWindow::onSpinNavtelecomHandler)
     EVT_TEXT(spinNavtelecomId, MainWindow::onSpinNavtelecomTextHandler)
+    EVT_SPINCTRL(spinNavtelecomModulesSt2Id, MainWindow::onSpinNavtelecomModulesSt2Handler)
+    EVT_TEXT(spinNavtelecomModulesSt2Id, MainWindow::onSpinNavtelecomModulesSt2TextHandler)
     EVT_SPINCTRL(spinNavtelecomEventCodeId, MainWindow::onSpinNavtelecomEventCodeHandler)
     EVT_TEXT(spinNavtelecomEventCodeId, MainWindow::onSpinNavtelecomEventCodeTextHandler)
     EVT_SPINCTRL(spinNavisetId, MainWindow::onSpinNavisetHandler)
@@ -2462,6 +2561,18 @@ void MainWindow::onSpinNavtelecomEventCodeTextHandler(wxCommandEvent& event)
 {
     event.Skip();
     updateNavtelecomEventCode();
+}
+
+void MainWindow::onSpinNavtelecomModulesSt2Handler(wxSpinEvent& event)
+{
+    event.Skip();
+    updateNavtelecomModulesStatus2();
+}
+
+void MainWindow::onSpinNavtelecomModulesSt2TextHandler(wxCommandEvent& event)
+{
+    event.Skip();
+    updateNavtelecomModulesStatus2();
 }
 
 

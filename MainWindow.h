@@ -1,12 +1,12 @@
-/********************************************************************************
- * project     Tracker statuses                                                 *
- *                                                                              *
- * file        MainWindow.h                                                     *
- * author      Dmitriy Bassamykin                                               *
- * date        12.12.2019                                                       *
- * copyright   The MIT License (MIT). Copyright (c) 2019 Dmitriy Bassamykin     *
- *                                                                              *
- ********************************************************************************/
+/************************************************************************************
+ * project     Tracker statuses                                                     *
+ *                                                                                  *
+ * file        MainWindow.h                                                         *
+ * author      Dmitriy Bassamykin                                                   *
+ * date        12.12.2019                                                           *
+ * copyright   The MIT License (MIT). Copyright (c) 2019-2020 Dmitriy Bassamykin    *
+ *                                                                                  *
+ ************************************************************************************/
 
 // -*- C++ -*-
 //
@@ -48,6 +48,7 @@ private:
     // end wxGlade
     void updateNavisetStatus(void);
     void updateNavtelecomStatus(void);
+    void updateNavtelecomModulesStatus2(void);
     void updateNavtelecomEventCode(void);
     void updateArnaviStatus(void);
 
@@ -62,8 +63,20 @@ protected:
     wxStaticText* lblNavtelecomGsmReg;
     wxStaticText* lblNavtelecomRouming;
     wxStaticText* lblNavtelecomGenerator;
+    wxPanel* tabNavtelecomParams_modules_st;
+    wxSpinCtrl* spinNavtelecomModulesSt2;
+    wxStaticText* lblNavtelecomGsmJamming;
+    wxStaticText* lblNavtelecomGpsJamming;
+    wxStaticText* lblNavtelecomBluetoothStatus;
+    wxStaticText* lblNavtelecomBluetoothConfig;
+    wxStaticText* lblNavtelecomPowerSave;
+    wxStaticText* lblNavtelecomPosAveraging;
+    wxStaticText* lblNavtelecomEvacuation;
+    wxPanel* tabNavtelecomParams_modules_st2;
     wxSpinCtrl* spinNavtelecomEventCode;
     wxStaticText* lblNavtelecomEventCode;
+    wxPanel* tabNavtelecomParams_event_code;
+    wxNotebook* tabNavtelecomParams;
     wxPanel* tabNavtelecom;
     wxSpinCtrl* spinNavisetStatus;
     wxStaticText* lblNavisetPwrExt;
@@ -97,6 +110,8 @@ public:
     void onSpinArnaviNavTextHandler(wxCommandEvent &event); // wxGlade: <event_handler>
     void onSpinNavtelecomEventCodeHandler(wxSpinEvent &event); // wxGlade: <event_handler>
     void onSpinNavtelecomEventCodeTextHandler(wxCommandEvent &event); // wxGlade: <event_handler>
+    void onSpinNavtelecomModulesSt2Handler(wxSpinEvent &event); // wxGlade: <event_handler>
+    void onSpinNavtelecomModulesSt2TextHandler(wxCommandEvent &event); // wxGlade: <event_handler>
 }; // wxGlade: end class
 
 
